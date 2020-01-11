@@ -1,5 +1,5 @@
 # arquivos contendo informações confidenciais
-db/credenciais_banco.json
+*.json
 
 # arquivos gerados pelo Sublime Text
 *.sublime-project
