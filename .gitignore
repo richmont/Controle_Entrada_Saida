@@ -1,5 +1,5 @@
 # arquivos contendo informações confidenciais
-*.json
+db/*.json
 
 # arquivos gerados pelo Sublime Text
 *.sublime-project
