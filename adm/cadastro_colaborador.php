@@ -17,7 +17,7 @@
 		<form action="cadastro_colaborador.php" method="get">
 			<ul>
 				<li>Nome: <input type="text" name="nome"></li>
-				<li>Matrícula <input type="text" name="matricula"></li>
+				<li>Matrícula <input type="number" name="matricula"></li>
 				<li><input type="submit" value="Cadastrar"></li>
 			</ul>
 		</form>
@@ -26,8 +26,10 @@
 </body>
 </html>
 <?php 
-	
-function adicionar_colaborador(){
-
+	$nome = $_GET["nome"];
+	$matricula = $_GET["matricula"];
+function adicionar_colaborador($nome,$matricula){
+	echo "Colaborador de matrícula ".$matricula." e nome ".$nome." cadastrado com sucesso!";
 }
+adicionar_colaborador($nome,$matricula);
  ?>
