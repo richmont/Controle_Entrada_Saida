@@ -6,7 +6,7 @@ include("ler_json.php");
 $index_keys = array("usuario","senha","db_hostname","db_port","database");
 
 # lê o arquivo json com as credenciais de conexão ao banco
-$db_credenciais = json2var("credenciais_banco.json", $index_keys);
+$db_credenciais = json2var(dirname(__FILE__) . "/credenciais_banco.json", $index_keys);
 
 # conecta no banco
 function conectar_banco($db_credenciais){
@@ -21,7 +21,7 @@ function conectar_banco($db_credenciais){
 	    echo "Conexão falhou " . mysqli_connect_error();
 		exit();
 	} else {
-		echo "Conexão com o banco estabelecida";
+		#echo "Conexão com o banco estabelecida";
 		return $conexao;
 	}
 
@@ -29,5 +29,4 @@ function conectar_banco($db_credenciais){
 
 $conexao = conectar_banco($db_credenciais);
 mysqli_select_db ( $conexao , $db_credenciais["database"] );
-
 ?>
