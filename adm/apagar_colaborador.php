@@ -24,7 +24,7 @@ function apagar_colaborador($id_colaborador){
 
 $bool1 = empty($_GET["id_colaborador"]);
 // verifica se há valores recebidos por GET
-if($bool1 | $bool2){
+if($bool1){
 	echo "Insira os dados do colaborador na página anterior";
 
 } else{
@@ -32,3 +32,4 @@ if($bool1 | $bool2){
 }
 
 ?>
+<button onclick="location.href='/controle_frios/adm/Colaborador.php'" class="btnColaborador" name="btnColaborador" id="btnColaborador" value="Colaborador" >Retornar a página Colaborador</button>

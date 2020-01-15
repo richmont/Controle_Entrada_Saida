@@ -1,4 +1,4 @@
 function submitOnClick(elemento){
-	document.getElementByClass(elemento).submit();
+	document.getElementById(elemento).submit();
 
 }

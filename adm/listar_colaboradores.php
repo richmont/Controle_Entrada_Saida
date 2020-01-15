@@ -1,4 +1,15 @@
 <script src='/controle_frios/js/submit_onclick.js'></script>
+<form id='form_apagar_colab' action='apagar_colaborador.php'  class='form_apagar_colab' name='form_apagar_colab' method='get'>
+		    <table>
+		    <tr>
+			    <th>id_colaborador</th>
+			    <th>nome</th>
+			    <th>matrícula</th>
+			    <th>apagar</th>
+			    <th>alterar</th>
+		    </tr>
+
+
 <?php  
 require "../db/db_conexao.php";
 $conexao = conectar_banco($db_credenciais);
@@ -16,17 +27,6 @@ function listar_colaboradores(){
 	} else {
 		if (mysqli_num_rows($r_listar_colab) > 0) {
 		    // saída dos dados de cada coluna
-		    echo "
-		    <form action='apagar_colaborador.php' id='form_apagar_colab' class='form_apagar_colab' name='form_apagar_colab' method='get'>
-		    <table>
-		    <tr>
-			    <th>id_colaborador</th>
-			    <th>nome</th>
-			    <th>matrícula</th>
-			    <th>apagar</th>
-			    <th>alterar</th>
-		    </tr>";
-
 		    while($coluna = mysqli_fetch_assoc($r_listar_colab)) {
 		    	echo "<tr>";
 		    	echo "<td>" . $coluna['id_colaborador'] . "</td>";
@@ -40,7 +40,7 @@ function listar_colaboradores(){
 
 			    	echo "
 			    	<input type='button' value='Apagar' onclick="
-			    	. "submitOnClick('form_apagar_colab')" .
+			    	. "\"submitOnClick('form_apagar_colab')\"" .
 			    	"></input>
 
 			    	</tr>";
