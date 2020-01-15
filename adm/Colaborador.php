@@ -1,6 +1,6 @@
 <?php  
 require("../static/cabecalho_adm.php");
-
+require "listar_colaboradores.php";
 /**
 CRUD completo da tabela Colaboradores
 
@@ -31,10 +31,22 @@ ao lado de cada nome, um botão para apagar cadastro
 		</form>
 </div>
 
+<?php  listar_colaboradores();?> 
+<div class="form_list_colab">
+	<form action="Colaborador.php" method="get">
+		<ul>
+			
+		</ul>	
+	</form>
 
+</div>
 
 </body>
 
 
 
 </html>
+<?php  
+
+
+?>
