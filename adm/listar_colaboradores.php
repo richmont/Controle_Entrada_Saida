@@ -1,3 +1,4 @@
+<script src='/controle_frios/js/submit_onclick.js'></script>
 <?php  
 require "../db/db_conexao.php";
 $conexao = conectar_banco($db_credenciais);
@@ -15,11 +16,15 @@ function listar_colaboradores(){
 	} else {
 		if (mysqli_num_rows($r_listar_colab) > 0) {
 		    // saída dos dados de cada coluna
-		    echo "<table>";
-		    echo "<tr>
-		    <th>id_colaborador</th>
-		    <th>nome</th>
-		    <th>matrícula</th>
+		    echo "
+		    <form action='apagar_colaborador.php' id='form_apagar_colab' class='form_apagar_colab' name='form_apagar_colab' method='get'>
+		    <table>
+		    <tr>
+			    <th>id_colaborador</th>
+			    <th>nome</th>
+			    <th>matrícula</th>
+			    <th>apagar</th>
+			    <th>alterar</th>
 		    </tr>";
 
 		    while($coluna = mysqli_fetch_assoc($r_listar_colab)) {
@@ -27,10 +32,20 @@ function listar_colaboradores(){
 		    	echo "<td>" . $coluna['id_colaborador'] . "</td>";
 		    	echo "<td>" . $coluna['nome'] . "</td>";
 		    	echo "<td>" . $coluna['matricula'] . "</td>";
-		        #echo "id_colaborador: " . $coluna["id_colaborador"]. " - Name: " . $coluna["nome"]. " " . $coluna["matricula"]. "<br>";
-		        echo "<tr>";
-		    }
+		    	# input invisível cujo valor padrão é o id_colaborador da linha atual
+		    	# permite enviar uma requisição GET com o id do colaborador a ser excluído do banco
+		    	echo "
+		    	<td>
+			    	<input type='hidden' name='id_colaborador' value='" . $coluna['id_colaborador'] . "'>";
 
+			    	echo "
+			    	<input type='button' value='Apagar' onclick="
+			    	. "submitOnClick('form_apagar_colab')" .
+			    	"></input>
+
+			    	</tr>";
+		    }
+		    echo "</table></form>";
 		} else {
 		    echo "Nenhuma entrada";
 			}

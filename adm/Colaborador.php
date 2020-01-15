@@ -1,3 +1,4 @@
+<html>
 <?php  
 require("../static/cabecalho_adm.php");
 require "listar_colaboradores.php";
@@ -8,11 +9,7 @@ botão para criar cadastro do colaborador
 lista de colaboradores
 ao lado de cada nome, um botão para apagar cadastro
 **/
-
 ?>
-<!DOCTYPE html>
-<html>
-
 <link rel="stylesheet" type="text/css" href="../css/Colaborador.css">
 <script src="/controle_frios/js/esconder_elemento.js"></script>
 
@@ -29,14 +26,13 @@ ao lado de cada nome, um botão para apagar cadastro
 				<li><input type="submit" value="Cadastrar"></input></li>
 			</ul>
 		</form>
-</div>
 
-<?php  listar_colaboradores();?> 
+</div>
+<br>
+
 <div class="form_list_colab">
 	<form action="Colaborador.php" method="get">
-		<ul>
-			
-		</ul>	
+		<?php  listar_colaboradores();?> 
 	</form>
 
 </div>
@@ -46,7 +42,3 @@ ao lado de cada nome, um botão para apagar cadastro
 
 
 </html>
-<?php  
-
-
-?>
