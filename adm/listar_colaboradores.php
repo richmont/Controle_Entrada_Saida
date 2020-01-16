@@ -1,5 +1,8 @@
-<script src='/controle_frios/js/submit_onclick.js'></script>
+<script src='/controle_frios/js/validar_form.js'></script>
+<script src="/controle_frios/js/submit_onclick.js"></script>
+<div class="apagar_colaborador">
 <form id='form_apagar_colab' action='apagar_colaborador.php'  class='form_apagar_colab' name='form_apagar_colab' method='get'>
+
 		    <table>
 		    <tr>
 			    <th>id_colaborador</th>
@@ -40,20 +43,17 @@ function listar_colaboradores(){
 
 			    	echo "
 			    	<input type='button' value='Apagar' onclick="
-			    	. "\"submitOnClick('form_apagar_colab')\"" .
+			    	. "\"submitOnClick(confirmarApagarColab('form_apagar_colab'),'form_apagar_colab')\"" .
 			    	"></input>
 
 			    	</tr>";
 		    }
-		    echo "</table></form>";
+		    echo "</table></form></div>";
 		} else {
 		    echo "Nenhuma entrada";
 			}
 		
 	}
-}	
-#listar_colaboradores();
-
-
+}
 
 ?>

@@ -1,6 +1,7 @@
 body {
   padding-top: 60px;
 }
+
 .form_in_colab li {
     list-style-type: none;
     /* alinha na horizontal */
@@ -18,6 +19,9 @@ body {
 .form_in_colab input {
 	padding: 12px 20px;
 }
+.form_in_colab form {
+  padding-left: 2 ;
+}
 
 .btnMostrarFormCadastro{
   /**
@@ -34,4 +38,18 @@ body {
   margin: 3px 3px;
   cursor: pointer;
 
+}
+
+.apagar_colaborador table{
+    border: all;
+    width: 100%
+}
+.apagar_colaborador th,td{
+  height: 50%;
+  text-align: left;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+}
+div {
+  padding-bottom: 10px;
 }

@@ -2,7 +2,8 @@
 
 <link rel="stylesheet" type="text/css" href="../css/Colaborador.css">
 <script src="/controle_frios/js/esconder_elemento.js"></script>
-
+<script type="module" src="/controle_frios/js/submit_onclick.js"></script>
+<script src='/controle_frios/js/validar_form.js'></script>
 <head><title>Colaborador</title></head>
 
 <body>

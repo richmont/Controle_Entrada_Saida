@@ -1,4 +1,5 @@
-function submitOnClick(elemento){
-	document.getElementById(elemento).submit();
-
+function submitOnClick(bool,elemento){
+	if(bool){
+		document.getElementById(elemento).submit();	
+	}
 }
