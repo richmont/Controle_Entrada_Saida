@@ -29,8 +29,8 @@ ao lado de cada nome, um botão para apagar cadastro
 		<form action="cadastro_colaborador.php" method="get" id="form_colaborador">
 			<ul>
 				<li>Nome: <input type="text" name="nome" id="inputNome"></li>
-				<li>Matrícula: <input type="number" name="matricula" id="inputMatricula"></li>
-				<li><input type="submit" value="Cadastrar" onfocus=""></input></li>
+				<li>Matrícula: <input type="text" name="matricula" id="inputMatricula"></li>
+				<li><input type="submit" value="Cadastrar" onfocus="validar_cadastro()" onmouseover="validar_cadastro()"></input></li>
 			</ul>
 		</form>
 
