@@ -5,3 +5,7 @@ function confirmarApagarColab(){
 		return false;
 	}
 }
+function validar_cadastro(){
+	nome = document.getElementById('inputNome').value;
+	matricula = document.getElementById('inputMatricula').value;
+}
