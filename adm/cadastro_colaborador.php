@@ -22,7 +22,23 @@
 		$nome = $_GET["nome"];
 		$matricula = $_GET["matricula"];
 		function adicionar_colaborador($nome, $matricula){
-			# necessário declarar que $conexao é uma variável de fora da função
+			# verificação via regex se o valor recebido é válido
+			# nome deve conter apenas letra
+			# matrícula deve conter apenas números
+			$array_saida_nome = array();
+			$array_saida_matricula = array();
+
+			$regex_nome = '/[0-9!@#$%^&*(),.?":{}|<>]/';
+			$regex_matricula = '/[a-zA-Z!@#$%^&*(),.?":{}|<>]/';
+
+			preg_match_all($regex_matricula, $matricula, $array_saida_matricula);
+			preg_match_all($regex_nome, $nome, $array_saida_nome);
+
+			if(sizeof($array_saida_nome[0]) > 0 | sizeof($array_saida_matricula[0]) > 0){
+				echo 'Dados inseridos inválidos';
+				
+			} else{
+				# necessário declarar que $conexao é uma variável de fora da função
 			global $conexao;
 			
 			# verificar se contém algo além de letras, mas só depois
@@ -37,6 +53,8 @@ VALUES ('" . $nome. "', '". $matricula . "')";
 			} else {
 				echo "Colaborador de matrícula ".$matricula." e nome ".$nome." cadastrado com sucesso!";
 			}
+		}
+			
 				
 			}
 			
