@@ -1,0 +1,9 @@
+.relogio{
+	width: 100vw;
+    height: 100vh;
+    font-size: x-large;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
