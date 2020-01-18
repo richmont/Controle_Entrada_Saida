@@ -3,8 +3,6 @@
 
 <?php  
 require "../db/db_conexao.php";
-$conexao = conectar_banco($db_credenciais);
-mysqli_select_db ( $conexao , $db_credenciais["database"] );
 
 function listar_colaboradores_array(){
 	/**

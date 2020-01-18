@@ -39,7 +39,7 @@ ao lado de cada nome, um botão para apagar cadastro
 <!-- listagem dos colaboradores deve estar dentro do formulário para apagar -->
 <div class="apagar_colaborador">
 	<form id='form_apagar_colab' action='apagar_colaborador.php'  class='form_apagar_colab' name='form_apagar_colab' method='get'>
-
+		<input type='hidden' name='id_colaborador' id="valor_form_apagar" value=''>
 			    <table>
 			    <tr>
 				    <th>id</th>
@@ -59,14 +59,14 @@ ao lado de cada nome, um botão para apagar cadastro
 						<td>" . $coluna['id_colaborador'] . "</td>
 						<td>" . $coluna['nome'] . "</td>
 						<td>" . $coluna['matricula'] . "</td>";
-			    	# input invisível cujo valor padrão é o id_colaborador da linha atual
-			    	# permite enviar uma requisição GET com o id do colaborador a ser excluído do banco
+						# passa para variável para evitar problemas com aspas escritas no html
+						$id = $coluna['id_colaborador'];
+			    	
+			    	# botão que, ao mesmo tempo, altera o valor do elemento oculto com a id do colaborador clicado, pergunta ao usuário se tem certeza que quer apagar, e submete o formulário.
 			    	echo "
 			    	<td>
-				    	<input type='hidden' name='id_colaborador' value='" . $coluna['id_colaborador'] . "'>";
-				    	echo "
 				    	<input type='button' value='Apagar' onclick="
-				    	. "\"submitOnClick(confirmarApagarColab('form_apagar_colab'),'form_apagar_colab')\"" .
+				    	. "\" mudaValueApagarColab(" . $id . "); submitOnClick(confirmarApagarColab('form_apagar_colab'),'form_apagar_colab') \"" .
 				    	"></input>
 
 				    	</tr>";

@@ -26,7 +26,6 @@ function conectar_banco($db_credenciais){
 	}
 
 }
-
 $conexao = conectar_banco($db_credenciais);
 mysqli_select_db ( $conexao , $db_credenciais["database"] );
 ?>

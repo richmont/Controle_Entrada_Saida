@@ -1,3 +1,7 @@
+function mudaValueApagarColab(id){
+	document.getElementById('valor_form_apagar').value = id;
+}
+
 function confirmarApagarColab(){
 	if(confirm("Tem certeza que quer apagar este colaborador?")){
 		return true;
@@ -5,6 +9,9 @@ function confirmarApagarColab(){
 		return false;
 	}
 }
+
+
+
 function validar_cadastro(){
 	nome = document.getElementById('inputNome').value;
 	matricula = document.getElementById('inputMatricula').value;
