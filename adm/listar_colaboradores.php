@@ -57,7 +57,30 @@ function listar_colaboradores_tabela(){
 }
 
 function listar_colaboradores_array(){
+	/**
+	Consulta o banco, recebe todo o conteúdo da tabela Colaboradores
+	ordena pelo id_colaborador, retorna ao usuário um array.
+	*/
+	global $conexao;
+	$lista_colaboradores = array();
+	$query_listar_colab = "SELECT id_colaborador, nome, matricula FROM colaboradores ORDER BY id_colaborador DESC;";
 
+	$r_listar_colab = mysqli_query($conexao, $query_listar_colab);
+
+	$array_tabela = array();
+	if(!$r_listar_colab){
+		print("Erro: " . mysqli_error($conexao));
+	} else {
+		if (mysqli_num_rows($r_listar_colab) > 0) {
+		    // saída dos dados de cada coluna
+		    while($coluna = mysqli_fetch_assoc($r_listar_colab)){
+		    	# recebe linha por linha da consulta e insere no fim de um array
+		    	 array_push($tabela, $coluna);
+		    }
+		    return $array_tabela;
+		    
+		}
+	}
 }
 
 
