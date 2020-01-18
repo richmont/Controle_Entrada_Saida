@@ -41,7 +41,7 @@ ao lado de cada nome, um botão para apagar cadastro
 		importa e executa a função listar operadores
 		*/
 		require "listar_colaboradores.php";
-		listar_colaboradores();?> 
+		listar_colaboradores_tabela();?> 
 
 </div>
 
