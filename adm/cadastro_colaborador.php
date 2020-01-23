@@ -7,7 +7,8 @@
 </head>
 <body onload="Definir_Foco('btnColaborador')">
 <?php 
-	require "../db/db_conexao.php";
+	require_once "../db/db_conexao.php";
+	require_once "listar_colaboradores.php";
 	require "../static/cabecalho_adm.php";
 	$conexao = conectar_banco($db_credenciais);
 	mysqli_select_db ( $conexao , $db_credenciais["database"] );
@@ -40,23 +41,40 @@
 			} else{
 				# necessário declarar que $conexao é uma variável de fora da função
 			global $conexao;
-			
+			# antes de inserir, verifica se outro colaborador com o mesmo nome ou matrícula já existe no banco
+			$id_consulta_pelo_nome = colaborador_id_pelo_nome($nome);
+			$id_consulta_pela_matricula = colaborador_id_pela_matricula($matricula);
+			# se a consulta resultar em NULL, o colaborador não existe
+			if($id_consulta_pela_matricula == NULL){
+				if($id_consulta_pelo_nome == NULL){
+							$query_add_colab = "INSERT into colaboradores (nome, matricula)
+		VALUES ('" . $nome. "', '". $matricula . "')";
+
+					$r_add_colab = mysqli_query($conexao, $query_add_colab);
+
+					if(!$r_add_colab){
+						print("Erro: " . mysqli_error($conexao));
+					} else {
+						echo "Colaborador de matrícula ".$matricula." e nome ".$nome." cadastrado com sucesso!";
+					}
+				} else {
+					echo "Colaborador já existe, é identificado pelo código: " . $id_consulta_pelo_nome;	
+				}
+			} else {
+				echo "Colaborador já existe, é identificado pelo código: " . $id_consulta_pela_matricula;
+			}
+
+
 			# verificar se contém algo além de letras, mas só depois
 			# query para inserir na tabela
-			$query_add_colab = "INSERT into colaboradores (nome, matricula)
-VALUES ('" . $nome. "', '". $matricula . "')";
-
-			$r_add_colab = mysqli_query($conexao, $query_add_colab);
-
-			if(!$r_add_colab){
-				print("Erro: " . mysqli_error($conexao));
-			} else {
-				echo "Colaborador de matrícula ".$matricula." e nome ".$nome." cadastrado com sucesso!";
-			}
+			
 		}
 			
 				
 			}
+
+
+
 			
 			adicionar_colaborador($nome,$matricula);
 	}		

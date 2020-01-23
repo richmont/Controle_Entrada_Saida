@@ -2,7 +2,9 @@
 <script src="/controle_frios/js/submit_onclick.js"></script>
 
 <?php  
-require "../db/db_conexao.php";
+require_once "../db/db_conexao.php";
+#$conexao = conectar_banco($db_credenciais);
+#mysqli_select_db ( $conexao , $db_credenciais["database"] );
 
 function listar_colaboradores_array(){
 	/**
@@ -45,8 +47,8 @@ function colaborador_nome($id_colaborador){
 						return $nome;
 					} # se colaborador não for encontrado, retorna null por padrão
 					}
-				}else { # se não receber nenhuma coluna, representa tabela vazia
-			echo "Tabela vazia, cadastre colaboradores";
+				}else { # se não receber nenhum dado, retorna null
+			return NULL;
 		}
 			}
 		} 
@@ -68,9 +70,55 @@ function colaborador_matricula($id_colaborador){
 						return $matricula;
 					} # se colaborador não for encontrado, retorna null por padrão
 					}
-				}else { # se não receber nenhuma coluna, representa tabela vazia
-			echo "Tabela vazia, cadastre colaboradores";
+				}else { # se não receber nenhuma coluna, retorna null
+			return NULL;
 		}
 			}
 		}
+function colaborador_id_pelo_nome($nome){
+	global $conexao;
+	$query_consultar_id_colab = 'SELECT id_colaborador, nome FROM colaboradores;';
+	$r_consultar_id_colab = mysqli_query($conexao, $query_consultar_id_colab);		
+	if(!$r_consultar_id_colab){
+			print("Erro: " . mysqli_error($conexao));
+		} else {
+			# se as colunas recebidas não forem igual a zero, continua
+			if (mysqli_num_rows($r_consultar_id_colab) > 0) {
+	    		# enquanto houverem colunas a serem consultadas, continua
+			    while($coluna = mysqli_fetch_assoc($r_consultar_id_colab)) {
+					if($coluna['nome'] == $nome){
+						# id do colaborador encontrado
+						$id = $coluna['id_colaborador'];
+						return $id;
+					} # se colaborador não for encontrado, retorna null por padrão
+					}
+				}else { 
+			return NULL;
+		}
+			}
+}
+
+function colaborador_id_pela_matricula($matricula){
+	global $conexao;
+	$query_consultar_id_colab = 'SELECT id_colaborador, matricula FROM colaboradores;';
+	$r_consultar_id_colab = mysqli_query($conexao, $query_consultar_id_colab);		
+	if(!$r_consultar_id_colab){
+			print("Erro: " . mysqli_error($conexao));
+		} else {
+			# se as colunas recebidas não forem igual a zero, continua
+			if (mysqli_num_rows($r_consultar_id_colab) > 0) {
+	    		# enquanto houverem colunas a serem consultadas, continua
+			    while($coluna = mysqli_fetch_assoc($r_consultar_id_colab)) {
+					if($coluna['matricula'] == $matricula){
+						# id do colaborador encontrado
+						$id = $coluna['id_colaborador'];
+						return $id;
+					} # se colaborador não for encontrado, retorna null por padrão
+					}
+				}else { # se não receber nenhuma coluna, representa tabela vazia
+			return NULL;
+		}
+			}
+}
+
 ?>
