@@ -94,10 +94,8 @@ function hora_saida_pelo_id_registro($id_registro){
 	}
 }
 
-function registro_colaboradores_com_entrada_sem_saida($id){
+function colaborador_com_entrada_sem_saida($id_colaborador){
 	/** recebe um id de colaborador, retorna o id do registro se ele tiver uma entrada e não uma saída */
-
-	$lista_colaboradores_sem_saida_camara = [];
 	global $conexao;
 	$query_listar_reg = "SELECT * FROM registro";
 	$r_listar_reg = mysqli_query($conexao, $query_listar_reg);
@@ -108,11 +106,14 @@ function registro_colaboradores_com_entrada_sem_saida($id){
 		    // saída dos dados de cada coluna
 		    while($coluna = mysqli_fetch_assoc($r_listar_reg)){
 		    	# se há um registro de entrada, mas nenhum de saída
-		    	if($coluna['hora_entrada'] != NULL & $coluna['hora_saida'] == NULL){
-		    		return $coluna['id_registro'];
-		    	}
+		    	if($coluna['id_colaborador'] == $id_colaborador){
+			    	if($coluna['hora_entrada'] != NULL & $coluna['hora_saida'] == NULL){
+			    		return $coluna['id_registro'];
+			    		break;
+			    	} else { return NULL;}
 		    	
-		    }
+		    	}
+			}
 		    
 		    
 		}
