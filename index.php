@@ -26,26 +26,30 @@
 		date_default_timezone_set('America/Belem');
 		$agora = new DateTime();
 		$na_camara = lista_colaboradores_na_camara();
-		foreach ($na_camara as $id_colaborador) {
-			# recebe o nome e a lista de todos os registros do colaborador
-			$nome = colaborador_nome($id_colaborador);
-			$lista_id_registro = lista_registros_por_colaborador($id_colaborador);
-			$numero_registros_colaborador = sizeof($lista_id_registro);
-			# recebe o último registro do colaborador, presumivelmente aquele sem a saída
-			$index_ultimo_registro = $numero_registros_colaborador - 1;
-			$ultimo_registro_colaborador = $lista_id_registro[$index_ultimo_registro];
-			$hora_entrada = hora_entrada_pelo_id_registro($ultimo_registro_colaborador);
-			$data = new DateTime($hora_entrada);
-			#$data->format('H:i:s');
-			$intervalo = $agora->diff($data);
+		if($na_camara==NULL){
+			echo "Nenhum colaborador na câmara fria";
+		} else{
+			foreach ($na_camara as $id_colaborador) {
+				# recebe o nome e a lista de todos os registros do colaborador
+				$nome = colaborador_nome($id_colaborador);
+				$lista_id_registro = lista_registros_por_colaborador($id_colaborador);
+				$numero_registros_colaborador = sizeof($lista_id_registro);
+				# recebe o último registro do colaborador, presumivelmente aquele sem a saída
+				$index_ultimo_registro = $numero_registros_colaborador - 1;
+				$ultimo_registro_colaborador = $lista_id_registro[$index_ultimo_registro];
+				$hora_entrada = hora_entrada_pelo_id_registro($ultimo_registro_colaborador);
+				$data = new DateTime($hora_entrada);
+				#$data->format('H:i:s');
+				$intervalo = $agora->diff($data);
 
-			echo "<ul>
-			<li>".$nome."</li>
-			<li>Entrada: ".$data->format('H:i')."</li>
-			<li>Tempo na câmara: ".$intervalo->format('%Hh:%Im')."</li>
-			</ul>";
+				echo "<ul>
+				<li>".$nome."</li>
+				<li>Entrada: ".$data->format('H:i')."</li>
+				<li>Tempo na câmara: ".$intervalo->format('%Hh:%Im')."</li>
+				</ul>";
 
-			}	
+				}
+		}	
 			
 		
 		?>
