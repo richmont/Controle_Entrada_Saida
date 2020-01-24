@@ -14,6 +14,8 @@
 
 </head>
 <body onload="relogio()">
+	<meta http-equiv="Refresh" content="240"> 
+
 
 	
 <div id="relogio" class="relogio"></div>
