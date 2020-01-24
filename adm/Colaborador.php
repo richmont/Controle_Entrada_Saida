@@ -66,7 +66,7 @@ ao lado de cada nome, um botão para apagar cadastro
 			    	# botão que, ao mesmo tempo, altera o valor do elemento oculto com a id do colaborador clicado, pergunta ao usuário se tem certeza que quer apagar, e submete o formulário.
 			    	echo "
 			    	<td>
-				    	<input type='button' value='Apagar' onclick="
+				    	<input type='hidden' type='button' value='Apagar' onclick="
 				    	. "\" mudaValueApagarColab(" . $id . "); submitOnClick(confirmarApagarColab('form_apagar_colab'),'form_apagar_colab') \"" .
 				    	"></input>
 
