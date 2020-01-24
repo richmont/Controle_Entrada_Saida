@@ -164,12 +164,13 @@ function lista_registros_por_colaborador($id_colaborador){
 		    while($coluna = mysqli_fetch_assoc($r_listar_reg)){
 		    	# se há um registro de entrada, mas nenhum de saída
 		    	if($coluna['id_colaborador'] == $id_colaborador){
+
 		    		array_push($lista_registros_por_colaborador, $coluna['id_registro']);
 		    	}
 		    	
 		    }
 		    
-		    
+		    return $lista_registros_por_colaborador;
 		}
 	}
 }
