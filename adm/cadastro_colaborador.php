@@ -7,12 +7,10 @@
 </head>
 <body onload="Definir_Foco('btnColaborador')">
 <?php 
+	set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_frios/") ;
 	require_once "../db/db_conexao.php";
 	require_once "listar_colaboradores.php";
 	require "../static/cabecalho_adm.php";
-	$conexao = conectar_banco($db_credenciais);
-	mysqli_select_db ( $conexao , $db_credenciais["database"] );
-
 	$bool1 = empty($_GET["nome"]);
 	$bool2 = empty($_GET["matricula"]);
 	// verifica se há valores recebidos por GET

@@ -6,9 +6,10 @@
 </head>
 
 <?php  
-require_once "../db/db_conexao.php";
-require_once "listar_registros.php";
-require_once "../adm/listar_colaboradores.php";
+set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_frios/") ;
+require_once "db/db_conexao.php";
+require_once "registro/listar_registros.php";
+require_once "adm/listar_colaboradores.php";
 $agora = new datetime();
 $timezone = new datetimezone('America/Belem');
 $agora->settimezone($timezone);

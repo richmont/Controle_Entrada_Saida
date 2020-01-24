@@ -9,7 +9,8 @@
 <body>
 
 <?php  
-require("../static/cabecalho_adm.php");
+set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_frios/") ;
+require("static/cabecalho_adm.php");
 
 /**
 CRUD completo da tabela Colaboradores

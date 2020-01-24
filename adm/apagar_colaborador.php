@@ -1,5 +1,6 @@
 <?php  
-require "listar_colaboradores.php";
+set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_frios/") ;
+require "adm/listar_colaboradores.php";
 
 function apagar_colaborador($id_colaborador){
 	global $conexao;
@@ -10,9 +11,7 @@ function apagar_colaborador($id_colaborador){
 	if(!$r_apagar_colab){
 		print("Erro: " . mysqli_error($conexao));
 	} else {
-
 		echo "Colaborador deletado com sucesso";
-
 	}
 }
 

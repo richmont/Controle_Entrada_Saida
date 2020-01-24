@@ -2,9 +2,9 @@
 <script src="/controle_frios/js/submit_onclick.js"></script>
 
 <?php  
-require_once "../db/db_conexao.php";
-#$conexao = conectar_banco($db_credenciais);
-#mysqli_select_db ( $conexao , $db_credenciais["database"] );
+
+set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_frios/") ;
+include_once "db/db_conexao.php";
 
 function listar_colaboradores_array(){
 	/**

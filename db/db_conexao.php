@@ -1,5 +1,6 @@
 <?php  
-include("ler_json.php");
+set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_frios/") ;
+include("db/ler_json.php");
 
 
 # elementos a serem verificados se existem no json

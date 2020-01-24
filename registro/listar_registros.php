@@ -1,5 +1,6 @@
 <?php  
-require_once("../db/db_conexao.php");
+set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_frios/") ;
+require_once("db/db_conexao.php");
 
 function listar_registros_array(){
 /** recebe todos os registros */
@@ -141,6 +142,7 @@ function lista_colaboradores_na_camara(){
 		    	}
 		    	
 		    }
+		    return $lista_colaboradores_sem_saida_camara;
 		    
 		    
 		}
