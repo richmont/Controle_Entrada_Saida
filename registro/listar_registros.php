@@ -107,11 +107,16 @@ function colaborador_com_entrada_sem_saida($id_colaborador){
 		    // saída dos dados de cada coluna
 		    while($coluna = mysqli_fetch_assoc($r_listar_reg)){
 		    	# se há um registro de entrada, mas nenhum de saída
+		    	/**echo "id_colaborador atual: " . $coluna['id_colaborador']. "<br>";
+		    	echo "hora_entrada atual: " . $coluna['hora_entrada']. "<br>";
+		    	echo "hora_saida atual: " . $coluna['hora_saida']. "<br>";
+		    	echo "id_registro atual: " . $coluna['id_registro']. "<br>";*/
 		    	if($coluna['id_colaborador'] == $id_colaborador){
 			    	if($coluna['hora_entrada'] != NULL & $coluna['hora_saida'] == NULL){
 			    		return $coluna['id_registro'];
-			    		break;
-			    	} else { return NULL;}
+			    		
+			    	} /** inserir um else aqui criou o bug de, caso fosse identificado o id_colaborador, mas ele não passasse no teste de não ter um valor de saída, retornava nulo.
+			    	Então ele parava o loop no momento que não passasse no teste */
 		    	
 		    	}
 			}
