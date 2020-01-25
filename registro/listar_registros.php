@@ -112,13 +112,13 @@ function colaborador_com_entrada_sem_saida($id_colaborador){
 		    	echo "hora_saida atual: " . $coluna['hora_saida']. "<br>";
 		    	echo "id_registro atual: " . $coluna['id_registro']. "<br>";*/
 		    	if($coluna['id_colaborador'] == $id_colaborador){
-			    	if($coluna['hora_entrada'] != NULL & $coluna['hora_saida'] == NULL){
+			    	if($coluna['hora_entrada'] != NULL and $coluna['hora_saida'] == NULL){
 			    		return $coluna['id_registro'];
 			    		
 			    	} /** inserir um else aqui criou o bug de, caso fosse identificado o id_colaborador, mas ele não passasse no teste de não ter um valor de saída, retornava nulo.
 			    	Então ele parava o loop no momento que não passasse no teste */
 		    	
-		    	}
+		    	} 
 			}
 		    
 		    
