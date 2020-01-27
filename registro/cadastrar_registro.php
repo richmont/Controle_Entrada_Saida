@@ -3,8 +3,9 @@
 <body onload="Definir_Foco('btnIndex')">
 	<head>
 		<script src="/controle_frios/js/definir_foco.js"></script>
+		<link rel="stylesheet" type="text/css" href="/controle_frios/css/resposta.css">
 </head>
-
+<div class='resposta'>
 <?php  
 set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_frios/") ;
 require_once "db/db_conexao.php";
@@ -49,8 +50,6 @@ function insere_registro_banco($id_colaborador,$horario){
 				}
 	}
 }
-
-
 $bool = empty($_GET["matricula"]);
 	// verifica se há valores recebidos por GET
 if($bool){
@@ -82,13 +81,12 @@ if($bool){
 
 
 
-
 #$id_registro = colaborador_com_entrada_sem_saida(22);
 #echo $id_registro;
 #echo $agora->format('Y-m-d H:i:s');
 #insere_registro_banco(33,$agora->format('Y-m-d H:i:s'));
 ?>
-
+</div>
 <button onclick="location.href='/controle_frios/'" class="btnIndex" name="btnIndex" id="btnIndex" value="Página inicial" >Retornar a página inicial</button>
 </body>
 </html>

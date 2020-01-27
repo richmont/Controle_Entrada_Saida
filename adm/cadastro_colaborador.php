@@ -4,13 +4,19 @@
 	<title>Cadastro de colaborador</title>
 	<link rel="stylesheet" type="text/css" href="../css/Colaborador.css">
 	<script src="/controle_frios/js/definir_foco.js"></script>
+	<link rel="stylesheet" type="text/css" href="/controle_frios/css/resposta.css">
 </head>
 <body onload="Definir_Foco('btnColaborador')">
-<?php 
+	<?php 
+	// trecho de cabeçalho colocado fora da div resposta pra não ser afetado pelo css
 	set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_frios/") ;
 	require_once "../db/db_conexao.php";
 	require_once "listar_colaboradores.php";
 	require "../static/cabecalho_adm.php";
+	 ?>
+<div class='resposta'>	
+<?php 
+	
 	$bool1 = empty($_GET["nome"]);
 	$bool2 = empty($_GET["matricula"]);
 	// verifica se há valores recebidos por GET
@@ -78,8 +84,9 @@
 	}		
 
  ?>
- 
+ <br>
  <button onclick="location.href='/controle_frios/adm/Colaborador.php'" class="btnColaborador" name="btnColaborador" id="btnColaborador" value="Colaborador" >Retornar a página Colaborador</button>
+ </div>
 </body>
 </html>
 
