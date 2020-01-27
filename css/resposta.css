@@ -1,3 +1,4 @@
+
 div.resposta{
 	padding: 12px 20px;
 	font-size: 40px;
@@ -7,4 +8,5 @@ div.resposta{
 button {
 	padding: 12px 20px;
 	font-size: 20px;
+	text-align: center;
 }

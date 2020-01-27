@@ -85,8 +85,9 @@ if($bool){
 #echo $id_registro;
 #echo $agora->format('Y-m-d H:i:s');
 #insere_registro_banco(33,$agora->format('Y-m-d H:i:s'));
-?>
-</div>
+?><br>
 <button onclick="location.href='/controle_frios/'" class="btnIndex" name="btnIndex" id="btnIndex" value="Página inicial" >Retornar a página inicial</button>
+</div>
+
 </body>
 </html>
