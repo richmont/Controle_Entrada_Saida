@@ -13,7 +13,7 @@ $data = Get-Date -UFormat "%d-%m-%Y_%Hh%Mm"
 $localizacao = "localhost"
 # credenciais
 $usuario = "root"
-$senha = "<senha>"
+$senha = "<sua senha>"
 # base de dados a receber backup
 $database = "controle_frios"
 # local onde vai ser armazenado o backup e o log
@@ -22,7 +22,7 @@ $local_backup = "C:\Users\richel277287\Documents\"
 $log_file = "$database-$data.log" 
 $output_file = "$database-$data.sql"
 # comando completo do mysqldump
-$comando = ".\mysqldump -h $localizacao -u $usuario --databases $database  -p$senha > $output_file 2> $local_backup$log_file "
+$comando = ".\mysqldump -h $localizacao -u $usuario --databases $database  -p$senha > $output_file 2> $log_file "
 # define localização para pasta de executáveis do mysql
 Set-Location -Path $mysql_bin
 # executa o comando
@@ -35,9 +35,11 @@ if ( (get-childitem $log_file).length -eq 0 )
     Compress-Archive -Path $output_file -CompressionLevel Optimal -DestinationPath $local_backup$output_file".zip"
     # remove o arquivo de backup SQL da pasta de executáveis do MySQL
     Remove-Item $output_file
+    Remove-Item $log_file
     "Backup realizado com sucesso"
   }else{
     # imprime na tela um aviso para verificar o log, pois houve um erro no backup
+    Copy-Item $log_file $local_backup
     "Erro verifique o log"
 
   }
