@@ -2,6 +2,59 @@
 set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_frios/") ;
 require_once("db/db_conexao.php");
 
+function tamanho_numero($numero){
+	/** EU NÃO SEI COMO ISSO FUNCIONA 
+	ok agora sei mais ou menos
+	https://stackoverflow.com/questions/28433798/php-get-length-of-digits-in-a-number
+	*/
+	if($numero !== 0){
+		return floor(log10($numero) + 1);
+	}
+	else{
+		return 1;
+	}
+	
+}
+
+
+function listar_registro_data($dia,$mes,$ano){
+/** recebe todos os registros */
+	global $conexao;
+	if(tamanho_numero($dia)>2){
+		return NULL;
+	} elseif (tamanho_numero($mes)>2) {
+		return NULL;
+	}elseif (tamanho_numero($ano)>4) {
+		return NULL;		
+		}else{
+			# numeros nao são aloprados, continua
+			
+			# sempre o valor vai ter 2 dítigos
+			$mes_c = sprintf('%02d', $mes);
+			$dia_c = sprintf('%02d', $dia);
+			# ou quatro, no caso de ano
+			$ano_c = sprintf('20%d', $ano);
+			#echo "dia: ".$dia_c." mes: ".$mes_c." ano: ".$ano_c;
+			$lista_registros_dia = [];
+			$query_listar_reg = "SELECT id_registro, hora_entrada, hora_saida FROM registro WHERE hora_entrada LIKE '%".$ano_c."-".$mes_c."-".$dia_c."%'";
+			$r_listar_reg = mysqli_query($conexao, $query_listar_reg);
+			if(!$r_listar_reg){
+				print("Erro: " . mysqli_error($conexao));
+			} else {
+				if (mysqli_num_rows($r_listar_reg) > 0) {
+				    // saída dos dados de cada coluna
+				    while($coluna = mysqli_fetch_assoc($r_listar_reg)){
+				    	array_push($lista_registros_dia, $coluna);
+				    }
+				    return $lista_registros_dia;
+				    
+				}
+			}
+		}
+}
+
+
+
 function listar_registros_array(){
 /** recebe todos os registros */
 	global $conexao;
@@ -179,5 +232,8 @@ function lista_registros_por_colaborador($id_colaborador){
 		}
 	}
 }
+
+
+
 
 ?>
