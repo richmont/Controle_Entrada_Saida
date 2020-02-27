@@ -233,7 +233,40 @@ function lista_registros_por_colaborador($id_colaborador){
 	}
 }
 
+function tabela_registros_por_colaborador($id_colaborador){
 
+	/** retorna um array de arrays com id_registro, nome, matricula, hora_entrada, hora_saida
+     * da consulta, nulo caso receba um $id_colaborador inválido ou o colaborador não tem registros
+    */
+    $tipo = gettype($id_colaborador);
+    if($tipo == 'integer'){
+        # valor recebido precisa ser um inteiro, ou falha
+        $tabela_registros_por_colaborador = [];
+        global $conexao;
+        $query_tabela_reg = "SELECT registro.id_registro, colaboradores.nome, colaboradores.matricula, registro.hora_entrada, registro.hora_saida FROM colaboradores INNER JOIN registro on colaboradores.id_colaborador = registro.id_colaborador where colaboradores.id_colaborador = " . $id_colaborador;
+        
+        $r_tabela_reg = mysqli_query($conexao, $query_tabela_reg);
+        if(!$r_tabela_reg){
+            print("Erro: " . mysqli_error($conexao));
+        } else {
+            if (mysqli_num_rows($r_tabela_reg) > 0) {
+                // saída dos dados de cada coluna
+                while($coluna = mysqli_fetch_assoc($r_tabela_reg)){
+                    # se há um registro de entrada, mas nenhum de saída
+                        array_push($tabela_registros_por_colaborador, $coluna);
+                }
+                
+                return $tabela_registros_por_colaborador;
+            }
+            # colaborador não tem nenhum registro 
+            return NULL;
+        }
+    
+    } else{
+        # valor recebido não é um inteiro
+        return NULL;
+    }
+}
 
 
 ?>
