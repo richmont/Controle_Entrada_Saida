@@ -6,7 +6,7 @@
 <head>
 	<title>Página inicial</title>
 	<?php  
-	set_include_path($_SERVER['DOCUMENT_ROOT'] . "/Controle_Higiene/") ;
+	set_include_path($_SERVER['DOCUMENT_ROOT'] . "/Controle_Entrada_Saida/") ;
 	require_once "static/cabecalho_padrao.php";
 	require_once "registro/listar_registros.php";
 	require_once "adm/listar_colaboradores.php";

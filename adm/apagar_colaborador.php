@@ -1,5 +1,5 @@
 <?php  
-set_include_path($_SERVER['DOCUMENT_ROOT'] . "/Controle_Higiene/") ;
+set_include_path($_SERVER['DOCUMENT_ROOT'] . "/Controle_Entrada_Saida/") ;
 require "adm/listar_colaboradores.php";
 
 function apagar_colaborador($id_colaborador){

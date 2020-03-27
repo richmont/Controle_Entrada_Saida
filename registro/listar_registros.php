@@ -1,5 +1,5 @@
 <?php  
-set_include_path($_SERVER['DOCUMENT_ROOT'] . "/Controle_Higiene/") ;
+set_include_path($_SERVER['DOCUMENT_ROOT'] . "/Controle_Entrada_Saida/") ;
 require_once("db/db_conexao.php");
 
 function tamanho_numero($numero){
