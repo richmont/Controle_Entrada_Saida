@@ -1,9 +1,9 @@
-<script src='/controle_frios/js/validar_form.js'></script>
-<script src="/controle_frios/js/submit_onclick.js"></script>
+<script src='/Controle_Higiene/js/validar_form.js'></script>
+<script src="/Controle_Higiene/js/submit_onclick.js"></script>
 
 <?php  
 
-set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_entrada_saida/") ;
+set_include_path($_SERVER['DOCUMENT_ROOT'] . "/Controle_Higiene/") ;
 include_once "db/db_conexao.php";
 
 function listar_colaboradores_array(){

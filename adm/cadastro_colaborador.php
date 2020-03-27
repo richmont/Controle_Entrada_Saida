@@ -3,13 +3,13 @@
 <head>
 	<title>Cadastro de colaborador</title>
 	<link rel="stylesheet" type="text/css" href="../css/Colaborador.css">
-	<script src="/controle_frios/js/definir_foco.js"></script>
-	<link rel="stylesheet" type="text/css" href="/controle_frios/css/resposta.css">
+	<script src="/Controle_Higiene/js/definir_foco.js"></script>
+	<link rel="stylesheet" type="text/css" href="/Controle_Higiene/css/resposta.css">
 </head>
 <body onload="Definir_Foco('btnColaborador')">
 	<?php 
 	// trecho de cabeçalho colocado fora da div resposta pra não ser afetado pelo css
-	set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_entrada_saida/") ;
+	set_include_path($_SERVER['DOCUMENT_ROOT'] . "/Controle_Higiene/") ;
 	require_once "../db/db_conexao.php";
 	require_once "listar_colaboradores.php";
 	require "../static/cabecalho_adm.php";
@@ -85,7 +85,7 @@
 
  ?>
  <br>
- <button onclick="location.href='/controle_frios/adm/Colaborador.php'" class="btnColaborador" name="btnColaborador" id="btnColaborador" value="Colaborador" >Retornar a página Colaborador</button>
+ <button onclick="location.href='/Controle_Higiene/adm/Colaborador.php'" class="btnColaborador" name="btnColaborador" id="btnColaborador" value="Colaborador" >Retornar a página Colaborador</button>
  </div>
 </body>
 </html>

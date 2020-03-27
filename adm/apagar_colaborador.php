@@ -1,5 +1,5 @@
 <?php  
-set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_entrada_saida/") ;
+set_include_path($_SERVER['DOCUMENT_ROOT'] . "/Controle_Higiene/") ;
 require "adm/listar_colaboradores.php";
 
 function apagar_colaborador($id_colaborador){
@@ -31,4 +31,4 @@ if($bool1){
 }
 
 ?>
-<button onclick="location.href='/controle_frios/adm/Colaborador.php'" class="btnColaborador" name="btnColaborador" id="btnColaborador" value="Colaborador" >Retornar a página Colaborador</button>
+<button onclick="location.href='/Controle_Higiene/adm/Colaborador.php'" class="btnColaborador" name="btnColaborador" id="btnColaborador" value="Colaborador" >Retornar a página Colaborador</button>

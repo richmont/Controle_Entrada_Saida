@@ -1,5 +1,5 @@
 <?php  
-set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_entrada_saida/") ;
+set_include_path($_SERVER['DOCUMENT_ROOT'] . "/Controle_Higiene/") ;
 include("db/ler_json.php");
 
 
@@ -29,7 +29,7 @@ function conectar_banco($db_credenciais){
 }
 
 function criar_database($conexao){
-	$query_criar_database = "CREATE DATABASE IF NOT EXISTS controle_frios;";
+	$query_criar_database = "CREATE DATABASE IF NOT EXISTS " . $db_credenciais['database'];
 
 	$r_criar_database = mysqli_query($conexao, $query_criar_database);
 

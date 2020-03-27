@@ -1,5 +1,5 @@
 <?php  
-set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_entrada_saida/") ;
+set_include_path($_SERVER['DOCUMENT_ROOT'] . "/Controle_Higiene/") ;
 include("db/ler_json.php");
 
 

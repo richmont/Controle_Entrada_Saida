@@ -17,7 +17,7 @@ function json2var($arquivo, $index_keys){
 	}
 }
 #$index_keys = array("usuario","senha","db_url","db_port","database");
-#$resultado = json2var("/controle_frios/db/credenciais_banco.json", $index_keys);
+#$resultado = json2var("/Controle_Higiene/db/credenciais_banco.json", $index_keys);
 #echo var_dump($resultado);
 
 ?>

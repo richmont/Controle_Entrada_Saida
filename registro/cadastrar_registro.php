@@ -2,12 +2,12 @@
 <html>
 <body onload="Definir_Foco('btnIndex')">
 	<head>
-		<script src="/controle_frios/js/definir_foco.js"></script>
-		<link rel="stylesheet" type="text/css" href="/controle_frios/css/resposta.css">
+		<script src="/Controle_Higiene/js/definir_foco.js"></script>
+		<link rel="stylesheet" type="text/css" href="/Controle_Higiene/css/resposta.css">
 </head>
 <div class='resposta'>
 <?php  
-set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_entrada_saida/") ;
+set_include_path($_SERVER['DOCUMENT_ROOT'] . "/Controle_Higiene/") ;
 require_once "db/db_conexao.php";
 require_once "registro/listar_registros.php";
 require_once "adm/listar_colaboradores.php";
@@ -86,7 +86,7 @@ if($bool){
 #echo $agora->format('Y-m-d H:i:s');
 #insere_registro_banco(33,$agora->format('Y-m-d H:i:s'));
 ?><br>
-<button onclick="location.href='/controle_frios/'" class="btnIndex" name="btnIndex" id="btnIndex" value="Página inicial" >Retornar a página inicial</button>
+<button onclick="location.href='/Controle_Higiene/'" class="btnIndex" name="btnIndex" id="btnIndex" value="Página inicial" >Retornar a página inicial</button>
 </div>
 
 </body>

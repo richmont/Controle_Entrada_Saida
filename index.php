@@ -1,12 +1,12 @@
 
 <!DOCTYPE html>
 <html>
-<script src='/controle_frios/js/relogio.js'></script>
+<script src='/Controle_Higiene/js/relogio.js'></script>
 <link rel="stylesheet" type="text/css" href="css/index.css">
 <head>
 	<title>Página inicial</title>
 	<?php  
-	set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_entrada_saida/") ;
+	set_include_path($_SERVER['DOCUMENT_ROOT'] . "/Controle_Higiene/") ;
 	require_once "static/cabecalho_padrao.php";
 	require_once "registro/listar_registros.php";
 	require_once "adm/listar_colaboradores.php";

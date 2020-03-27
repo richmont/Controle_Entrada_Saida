@@ -1,15 +1,15 @@
 <html>
 
 <link rel="stylesheet" type="text/css" href="../css/Colaborador.css">
-<script src="/controle_frios/js/esconder_elemento.js"></script>
-<script type="module" src="/controle_frios/js/submit_onclick.js"></script>
-<script src='/controle_frios/js/validar_form.js'></script>
+<script src="/Controle_Higiene/js/esconder_elemento.js"></script>
+<script type="module" src="/Controle_Higiene/js/submit_onclick.js"></script>
+<script src='/Controle_Higiene/js/validar_form.js'></script>
 <head><title>Colaborador</title></head>
 
 <body>
 
 <?php  
-set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_entrada_saida/") ;
+set_include_path($_SERVER['DOCUMENT_ROOT'] . "/Controle_Higiene/") ;
 require("static/cabecalho_adm.php");
 
 /**
