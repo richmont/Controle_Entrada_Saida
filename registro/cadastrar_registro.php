@@ -2,8 +2,8 @@
 <html>
 <body onload="Definir_Foco('btnIndex')">
 	<head>
-		<script src="/Controle_Higiene/js/definir_foco.js"></script>
-		<link rel="stylesheet" type="text/css" href="/Controle_Higiene/css/resposta.css">
+		<script src="/Controle_Entrada_Saida/js/definir_foco.js"></script>
+		<link rel="stylesheet" type="text/css" href="/Controle_Entrada_Saida/css/resposta.css">
 </head>
 <div class='resposta'>
 <?php  

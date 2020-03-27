@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html>
-<script src='/Controle_Higiene/js/relogio.js'></script>
+<script src='/Controle_Entrada_Saida/js/relogio.js'></script>
 <link rel="stylesheet" type="text/css" href="css/index.css">
 <head>
 	<title>Página inicial</title>

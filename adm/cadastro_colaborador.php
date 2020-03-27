@@ -3,8 +3,8 @@
 <head>
 	<title>Cadastro de colaborador</title>
 	<link rel="stylesheet" type="text/css" href="../css/Colaborador.css">
-	<script src="/Controle_Higiene/js/definir_foco.js"></script>
-	<link rel="stylesheet" type="text/css" href="/Controle_Higiene/css/resposta.css">
+	<script src="/Controle_Entrada_Saida/js/definir_foco.js"></script>
+	<link rel="stylesheet" type="text/css" href="/Controle_Entrada_Saida/css/resposta.css">
 </head>
 <body onload="Definir_Foco('btnColaborador')">
 	<?php 

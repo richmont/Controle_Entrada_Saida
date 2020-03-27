@@ -1,9 +1,9 @@
 <html>
 
 <link rel="stylesheet" type="text/css" href="../css/Colaborador.css">
-<script src="/Controle_Higiene/js/esconder_elemento.js"></script>
-<script type="module" src="/Controle_Higiene/js/submit_onclick.js"></script>
-<script src='/Controle_Higiene/js/validar_form.js'></script>
+<script src="/Controle_Entrada_Saida/js/esconder_elemento.js"></script>
+<script type="module" src="/Controle_Entrada_Saida/js/submit_onclick.js"></script>
+<script src='/Controle_Entrada_Saida/js/validar_form.js'></script>
 <head><title>Colaborador</title></head>
 
 <body>

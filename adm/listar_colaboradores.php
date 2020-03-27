@@ -1,5 +1,5 @@
-<script src='/Controle_Higiene/js/validar_form.js'></script>
-<script src="/Controle_Higiene/js/submit_onclick.js"></script>
+<script src='/Controle_Entrada_Saida/js/validar_form.js'></script>
+<script src="/Controle_Entrada_Saida/js/submit_onclick.js"></script>
 
 <?php  
 
