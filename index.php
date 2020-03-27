@@ -6,7 +6,7 @@
 <head>
 	<title>Página inicial</title>
 	<?php  
-	set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_frios/") ;
+	set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_entrada_saida/") ;
 	require_once "static/cabecalho_padrao.php";
 	require_once "registro/listar_registros.php";
 	require_once "adm/listar_colaboradores.php";
@@ -27,7 +27,7 @@
 		$agora = new DateTime();
 		$na_camara = lista_colaboradores_na_camara();
 		if($na_camara==NULL){
-			echo "Nenhum colaborador na câmara fria";
+			echo "Nenhum colaborador lavando as mãos no momento";
 		} else{
 			foreach ($na_camara as $id_colaborador) {
 				# recebe o nome e a lista de todos os registros do colaborador

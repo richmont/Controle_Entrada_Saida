@@ -9,7 +9,7 @@
 <body>
 
 <?php  
-set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_frios/") ;
+set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_entrada_saida/") ;
 require("static/cabecalho_adm.php");
 
 /**

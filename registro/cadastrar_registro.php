@@ -7,7 +7,7 @@
 </head>
 <div class='resposta'>
 <?php  
-set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_frios/") ;
+set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_entrada_saida/") ;
 require_once "db/db_conexao.php";
 require_once "registro/listar_registros.php";
 require_once "adm/listar_colaboradores.php";

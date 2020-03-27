@@ -9,7 +9,7 @@
 <body onload="Definir_Foco('btnColaborador')">
 	<?php 
 	// trecho de cabeçalho colocado fora da div resposta pra não ser afetado pelo css
-	set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_frios/") ;
+	set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_entrada_saida/") ;
 	require_once "../db/db_conexao.php";
 	require_once "listar_colaboradores.php";
 	require "../static/cabecalho_adm.php";

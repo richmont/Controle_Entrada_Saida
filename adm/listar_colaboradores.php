@@ -3,7 +3,7 @@
 
 <?php  
 
-set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_frios/") ;
+set_include_path($_SERVER['DOCUMENT_ROOT'] . "/controle_entrada_saida/") ;
 include_once "db/db_conexao.php";
 
 function listar_colaboradores_array(){
