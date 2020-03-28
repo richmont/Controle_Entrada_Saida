@@ -85,7 +85,7 @@
 
  ?>
  <br>
- <button onclick="location.href='/Controle_Higiene/adm/Colaborador.php'" class="btnColaborador" name="btnColaborador" id="btnColaborador" value="Colaborador" >Retornar a página Colaborador</button>
+ <button onclick="location.href='/Controle_Entrada_Saida/adm/Colaborador.php'" class="btnColaborador" name="btnColaborador" id="btnColaborador" value="Colaborador" >Retornar a página Colaborador</button>
  </div>
 </body>
 </html>

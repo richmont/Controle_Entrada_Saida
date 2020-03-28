@@ -86,7 +86,7 @@ if($bool){
 #echo $agora->format('Y-m-d H:i:s');
 #insere_registro_banco(33,$agora->format('Y-m-d H:i:s'));
 ?><br>
-<button onclick="location.href='/Controle_Higiene/'" class="btnIndex" name="btnIndex" id="btnIndex" value="Página inicial" >Retornar a página inicial</button>
+<button onclick="location.href='/Controle_Entrada_Saida/'" class="btnIndex" name="btnIndex" id="btnIndex" value="Página inicial" >Retornar a página inicial</button>
 </div>
 
 </body>
