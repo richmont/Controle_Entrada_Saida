@@ -1,0 +1,21 @@
+table{
+    width: 100%;
+    align-items: center;
+    border: 1px solid grey;
+}
+
+img.logo_atacadao {
+    width: 40%;
+    height: 50%;
+    align-items: left;
+    text-align: left;
+
+}
+ tr, td{
+    border: 1px solid grey;
+ }
+
+ th {
+     background-color: rgb(165, 161, 161);
+     color: black;
+ }
