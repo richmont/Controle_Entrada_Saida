@@ -267,35 +267,52 @@ function tabela_registros_por_colaborador($id_colaborador){
     }
 }
 
-function listar_registro_mes_test($mes,$ano){
-    /** recebe todos os registros */
-        global $conexao;
-        if (tamanho_numero($mes)>2) {
-            return NULL;
-        }elseif (tamanho_numero($ano)>4) {
-            return NULL;		
-            }else{
-                # numeros nao são aloprados, continua
-                # sempre o valor vai ter 2 dítigos
-                $mes_c = sprintf('%02d', $mes);
-                # ou quatro, no caso de ano
-                $ano_c = sprintf('20%d', $ano);
-                $lista_registros_mes = [];
-                $query_listar_reg = "SELECT id_registro, hora_entrada, hora_saida FROM registro WHERE hora_entrada LIKE '%".$ano_c."-".$mes_c."%'";
-                $r_listar_reg = mysqli_query($conexao, $query_listar_reg);
-                if(!$r_listar_reg){
-                    print("Erro: " . mysqli_error($conexao));
-                } else {
-                    if (mysqli_num_rows($r_listar_reg) > 0) {
-                        // saída dos dados de cada coluna
-                        while($coluna = mysqli_fetch_assoc($r_listar_reg)){
-                            array_push($lista_registros_mes, $coluna);
-                        }
-                        return $lista_registros_mes;
-                        
-                    }
-                }
-            }
-    }
 
+
+function listar_registro_data_colaborador($dia,$mes,$ano, $id_colaborador){
+	/** recebe todos os registros */
+		global $conexao;
+	
+	
+		if(tamanho_numero($dia)>2){
+			return NULL;
+		} elseif (tamanho_numero($mes)>2) {
+			return NULL;
+		}elseif (tamanho_numero($ano)>4) {
+			return NULL;		
+			}else{
+				# numeros nao são aloprados, continua
+				
+				# sempre o valor vai ter 2 dítigos
+				$mes_c = sprintf('%02d', $mes);
+				$dia_c = sprintf('%02d', $dia);
+				# ou quatro, no caso de ano
+				$ano_c = sprintf('20%d', $ano);
+				#echo "dia: ".$dia_c." mes: ".$mes_c." ano: ".$ano_c;
+				$lista_registros_dia_colaborador = [];
+
+				$query_listar_reg = "SELECT id_colaborador, hora_entrada, hora_saida FROM registro WHERE id_colaborador = ".$id_colaborador." AND hora_entrada LIKE '%".$ano_c."-".$mes_c."-".$dia_c."%'";
+				$r_listar_reg = mysqli_query($conexao, $query_listar_reg);
+				#echo var_dump($r_listar_reg);
+				#echo $r_listar_reg->field_count;
+				#echo mysqli_num_rows($r_listar_reg);
+				if(!$r_listar_reg){
+					print("Erro: " . mysqli_error($conexao));
+				} else {
+					if (mysqli_num_rows($r_listar_reg) > 0) {
+						// saída dos dados de cada coluna
+						while($coluna = mysqli_fetch_assoc($r_listar_reg)){
+							#echo var_dump($lista_registros_dia_colaborador);
+							array_push($lista_registros_dia_colaborador, $coluna);
+						}
+					
+						
+						return $lista_registros_dia_colaborador;
+						
+					} else {
+						echo "Consulta retornou nulo";
+					}
+				}
+			}
+	}
 ?>
