@@ -291,7 +291,7 @@ function listar_registro_data_colaborador($dia,$mes,$ano, $id_colaborador){
 				#echo "dia: ".$dia_c." mes: ".$mes_c." ano: ".$ano_c;
 				$lista_registros_dia_colaborador = [];
 
-				$query_listar_reg = "SELECT id_colaborador, hora_entrada, hora_saida FROM registro WHERE id_colaborador = ".$id_colaborador." AND hora_entrada LIKE '%".$ano_c."-".$mes_c."-".$dia_c."%'";
+				$query_listar_reg = "SELECT colaboradores.nome, colaboradores.matricula, registro.hora_entrada, registro.hora_saida FROM colaboradores INNER JOIN registro on colaboradores.id_colaborador = registro.id_colaborador WHERE registro.id_colaborador = ".$id_colaborador." AND hora_entrada LIKE '%".$ano_c."-".$mes_c."-".$dia_c."%'";
 				$r_listar_reg = mysqli_query($conexao, $query_listar_reg);
 				#echo var_dump($r_listar_reg);
 				#echo $r_listar_reg->field_count;
