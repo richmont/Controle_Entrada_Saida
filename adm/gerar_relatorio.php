@@ -2,22 +2,23 @@
     <head><title>Relatório de Colaborador</title></head>
         <body>
         <link rel="stylesheet" type="text/css" href="../css/relatorios.css">
-        <table class="tab_cabecalho">
-            <tr>
-                <!-- <td><img class="logo_atacadao" src="../atacadao.png" alt="Logo atacadão"></td> -->
-                
-            </tr>
-            </table>
+
             <div class="relat-body">
             <table>
                 <tr><th>Data</th><th colspan=2>28/03/20</th></tr>
-                <tr><td>Assinatura</td><td colspan=2></td></tr>
+                <tr class="linha_assinatura"><td>Assinatura</td><td colspan=2></td></tr>
                     <tr>
                         <th rowspan=2 >Nome</th><th colspan=2 >Horário</th>
                         </tr>
                     <tr>
                         <th >Ida</th><th >Volta</th>
                         </tr>
+
+                        <?php
+                        set_include_path($_SERVER['DOCUMENT_ROOT'] . "/Controle_Entrada_Saida/") ;
+                        require_once("registro/listar_registros.php");
+                        
+                        ?>
                     <tr>
                         <td>Richelmy</td><td>11:00</td><td>11:05</td>
                         </tr>
