@@ -3,6 +3,7 @@
 <html>
 <script src='/Controle_Entrada_Saida/js/relogio.js'></script>
 <link rel="stylesheet" type="text/css" href="css/index.css">
+<script src="/Controle_Entrada_Saida/js/definir_foco.js"></script>
 <head>
 	<title>Página inicial</title>
 	<?php  
@@ -13,7 +14,7 @@
 	?>
 
 </head>
-<body onload="relogio()">
+<body onload="relogio() ; Definir_Foco('matriculaRegistro')">
 	<meta http-equiv="Refresh" content="240"> 
 
 
