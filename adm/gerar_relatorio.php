@@ -55,9 +55,21 @@
                                     </tr>
                                     ";
                                     $lista = listar_registro_data_colaborador($dia,$mes,$ano,$id_colaborador);
-                                    foreach($lista as $coluna){
-                                        echo "<tr><td>".$coluna["nome"]."</td><td>".$coluna["hora_entrada"]."</td><td>".$coluna["hora_saida"]."</td>";
+                                    if($lista==NULL){
+                                        echo "<br>Colaborador sem registros na data solicitada";
                                     }
+                                    else{
+                                        foreach($lista as $coluna){
+                                            $obj_hora_entrada = new datetime($coluna["hora_entrada"]);
+                                            $obj_hora_saida = new datetime($coluna["hora_saida"]);
+                                            # definir timezone estraga o horário correto que já está no banco
+                                            #$obj_hora_entrada->settimezone($timezone);
+                                            #$obj_hora_saida->settimezone($timezone);
+                                            ;
+                                            echo "<tr><td>".$coluna["nome"]."</td><td>".$obj_hora_entrada->format('H:i:s')."</td><td>".$obj_hora_saida->format('H:i:s')."</td>";
+                                        }
+                                    }
+                                    
 
 		                        }
 	                        }			
