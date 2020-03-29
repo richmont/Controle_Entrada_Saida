@@ -78,15 +78,11 @@ if($bool){
 	}			
 }
 
-
-
-
-#$id_registro = colaborador_com_entrada_sem_saida(22);
-#echo $id_registro;
-#echo $agora->format('Y-m-d H:i:s');
-#insere_registro_banco(33,$agora->format('Y-m-d H:i:s'));
+#Retorna automaticamente à página anterior
+echo "<meta HTTP-EQUIV='refresh' CONTENT='3;URL=..'>";
 ?><br>
-<button onclick="location.href='/Controle_Entrada_Saida/'" class="btnIndex" name="btnIndex" id="btnIndex" value="Página inicial" >Retornar a página inicial</button>
+
+<!--<button onclick="location.href='/Controle_Entrada_Saida/'" class="btnIndex" name="btnIndex" id="btnIndex" value="Página inicial" >Retornar a página inicial</button>-->
 </div>
 
 </body>
