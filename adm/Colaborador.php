@@ -59,7 +59,7 @@ ao lado de cada nome, um botão para apagar cadastro
 					echo "<tr>
 						<td>" . $coluna['id_colaborador'] . "</td>
 						<td>" . $coluna['nome'] . "</td>
-						<td>" . $coluna['matricula'] . "</td>";
+						<td><a href='gerar_relatorio.php?matricula=000".$coluna['matricula']."'>" . $coluna['matricula'] . "</a></td>";
 						# passa para variável para evitar problemas com aspas escritas no html
 						$id = $coluna['id_colaborador'];
 			    	
