@@ -44,7 +44,7 @@ function criar_database($conexao){
 
 function criar_tabela_colaboradores($conexao){
 	$query_criar_tabela_colaboradores =
-	"CREATE TABLE IF NOT EXISTS Colaboradores ( 
+	"CREATE TABLE IF NOT EXISTS colaboradores ( 
 	id_colaborador INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 	nome VARCHAR(50) NOT NULL,
 	matricula INT(9) NOT NULL);";
@@ -61,9 +61,9 @@ function criar_tabela_colaboradores($conexao){
 
 function criar_tabela_registro($conexao){
 	$query_criar_tabela_registro = 
-	"CREATE TABLE IF NOT EXISTS Registro ( 
+	"CREATE TABLE IF NOT EXISTS registro ( 
 	id_registro int(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-	id_colaborador int(6) REFERENCES Colaboradores(id_colaborador),
+	id_colaborador int(6) REFERENCES colaboradores(id_colaborador),
 	hora_entrada datetime,
 	hora_saida datetime);";
 
