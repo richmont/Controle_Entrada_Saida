@@ -41,32 +41,42 @@
                                     echo "Matrícula inexistente";
                                 } else{
                                     # matrícula encontrada, finalmente
-                                    
+                                    # cria a tabela que exibirá os horários do colaborador e a data de hoje
                                     #echo "Colaborador de código ". $id_colaborador. " recebido";
                                     echo "
                                     <table>
                                     <tr><th>Data</th><th colspan=2>" .$dia."/".$mes."/".$ano."</th></tr>
                                     <tr class='linha_assinatura'><td>Assinatura</td><td colspan=2></td></tr>
                                     <tr>
-                                    <th rowspan=2 >Nome</th><th colspan=2 >Horário</th>
+                                        <th rowspan=2 >Nome</th>
+                                        <th colspan=2 >Horário</th>
                                     </tr>
                                     <tr>
-                                    <th >Ida</th><th >Volta</th>
+                                        <th >Ida</th>
+                                        <th >Volta</th>
                                     </tr>
                                     ";
                                     $lista = listar_registro_data_colaborador($dia,$mes,$ano,$id_colaborador);
                                     if($lista==NULL){
-                                        echo "<br>Colaborador sem registros na data solicitada";
+                                        echo "<br>Colaborador sem registros na data solicitada<br>";
                                     }
                                     else{
                                         foreach($lista as $coluna){
+                                            # caso colaborador não registre a saída, exibe mensagem ao invés de nulo
+                                            # caso não faça isso, o relatório será gerado com um horário esquisito
+                                            if($coluna["hora_saida"]==NULL){
+                                                $hora_saida = "Sem registro";
+                                            } else{
+                                                $obj_hora_saida = new datetime($coluna["hora_saida"]);
+                                                $hora_saida = $obj_hora_saida->format('H:i:s');
+                                            }
+                                            # hora entrada definida normalmente
                                             $obj_hora_entrada = new datetime($coluna["hora_entrada"]);
-                                            $obj_hora_saida = new datetime($coluna["hora_saida"]);
-                                            # definir timezone estraga o horário correto que já está no banco
-                                            #$obj_hora_entrada->settimezone($timezone);
-                                            #$obj_hora_saida->settimezone($timezone);
+                                            $hora_entrada = $obj_hora_entrada->format('H:i:s');
+                                            
+
                                             ;
-                                            echo "<tr><td>".$coluna["nome"]."</td><td>".$obj_hora_entrada->format('H:i:s')."</td><td>".$obj_hora_saida->format('H:i:s')."</td>";
+                                            echo "<tr><td>".$coluna["nome"]."</td><td>".$hora_entrada."</td><td>".$hora_saida."</td>";
                                         }
                                     }
                                     
