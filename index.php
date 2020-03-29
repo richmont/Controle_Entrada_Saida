@@ -53,7 +53,7 @@
 				<li>".$nome."</li>
 				
 				<li>Entrada: ".$hora_entrada."</li>
-				<li>Tempo na câmara: ".$intervalo."</li>
+				<li>Tempo lavando as mãos: ".$intervalo."</li>
 				</ul>";
 
 				}

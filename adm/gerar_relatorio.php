@@ -2,6 +2,7 @@
     <head><title>Relatório de Colaborador</title></head>
         <body>
         <link rel="stylesheet" type="text/css" href="../css/relatorios.css">
+        <button onclick="location.href='..'" class="btnIndex" name="btnIndex" id="btnIndex" value="Página inicial" >Retornar a página inicial</button>
 
             <div class="relat-body">
             
@@ -85,10 +86,11 @@
 		                        }
 	                        }			
                         }   
-
+                        
                         ?>
                     
                 </table>
             </div>
+            
         </body>
 </html>
