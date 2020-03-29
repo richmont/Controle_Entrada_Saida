@@ -207,6 +207,28 @@ function lista_colaboradores_na_camara(){
 	}
 }
 
+function ultimo_registro_colaborador($id_colaborador){
+	/** retorna um array com os ids de todos os registros de um colaborador*/
+	if(is_int($id_colaborador)){
+		$lista_registros_por_colaborador = [];
+		global $conexao;
+		$query_listar_reg = "SELECT id_registro, id_colaborador FROM registro where id_colaborador = ".$id_colaborador." ORDER BY id_registro DESC LIMIT 1";
+		$r_listar_reg = mysqli_query($conexao, $query_listar_reg);
+		if(!$r_listar_reg){
+			print("Erro: " . mysqli_error($conexao));
+		} else {
+			if (mysqli_num_rows($r_listar_reg) > 0) {
+				// saída dos dados de cada coluna
+				$coluna = mysqli_fetch_assoc($r_listar_reg);
+				return $coluna['id_registro'];
+			}
+		}
+	} else {
+		# não é inteiro, id inválido
+		return NULL;
+	}
+}
+
 function lista_registros_por_colaborador($id_colaborador){
 	/** retorna um array com os ids de todos os registros de um colaborador*/
 	if(is_int($id_colaborador)){
@@ -214,6 +236,7 @@ function lista_registros_por_colaborador($id_colaborador){
 		global $conexao;
 		$query_listar_reg = "SELECT id_registro, id_colaborador FROM registro where id_colaborador = " . $id_colaborador;
 		$r_listar_reg = mysqli_query($conexao, $query_listar_reg);
+		echo "<br><br><br><br>".var_dump($r_listar_reg);
 		if(!$r_listar_reg){
 			print("Erro: " . mysqli_error($conexao));
 		} else {

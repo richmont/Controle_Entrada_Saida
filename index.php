@@ -22,30 +22,38 @@
 <div class="dentro_camara">
 	
 		<?php  
-
-		date_default_timezone_set('America/Belem');
-		$agora = new DateTime();
+		$timezone = new datetimezone('America/Belem');
+		$agora = new DateTime(NULL, $timezone);
+		$agora->settimezone($timezone);
 		$na_camara = lista_colaboradores_na_camara();
 		if($na_camara==NULL){
 			echo "Nenhum colaborador lavando as mãos no momento";
 		} else{
-			foreach ($na_camara as $id_colaborador) {
-				# recebe o nome e a lista de todos os registros do colaborador
+			foreach ($na_camara as $str_id_colaborador) {
+				$id_colaborador = intval($str_id_colaborador);
 				$nome = colaborador_nome($id_colaborador);
-				$lista_id_registro = lista_registros_por_colaborador($id_colaborador);
-				$numero_registros_colaborador = sizeof($lista_id_registro);
-				# recebe o último registro do colaborador, presumivelmente aquele sem a saída
-				$index_ultimo_registro = $numero_registros_colaborador - 1;
-				$ultimo_registro_colaborador = $lista_id_registro[$index_ultimo_registro];
-				$hora_entrada = hora_entrada_pelo_id_registro($ultimo_registro_colaborador);
-				$data = new DateTime($hora_entrada);
-				#$data->format('H:i:s');
-				$intervalo = $agora->diff($data);
+				$ultimo_registro_colaborador = ultimo_registro_colaborador($id_colaborador);
+				# se o último registro não for nulo, trabalha nos dados e os define para exibir
+				if($ultimo_registro_colaborador!=NULL){
+					$db_hora_entrada = hora_entrada_pelo_id_registro($ultimo_registro_colaborador);
+					# timezone tem de ser idêntico nos dois valores datetime para diff dar certo
+					# diff converte automaticamente valores sem timezone para UTC
+					$obj_hora_entrada = new DateTime($db_hora_entrada, $timezone);
+					$obj_intervalo = $obj_hora_entrada->diff($agora);
+					#$obj_hora_entrada->settimezone($timezone);
+					$hora_entrada = $obj_hora_entrada->format('H:i:s');
+					$intervalo = $obj_intervalo->format('%Hh:%Im');
+				}else{
+					# exibe erro e não horário atual
+					$hora_entrada = "Erro";
+					$intervalo = $hora_entrada;
+				}
 
 				echo "<ul>
 				<li>".$nome."</li>
-				<li>Entrada: ".$data->format('H:i')."</li>
-				<li>Tempo na câmara: ".$intervalo->format('%Hh:%Im')."</li>
+				
+				<li>Entrada: ".$hora_entrada."</li>
+				<li>Tempo na câmara: ".$intervalo."</li>
 				</ul>";
 
 				}
