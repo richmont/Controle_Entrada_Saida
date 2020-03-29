@@ -13,6 +13,7 @@ img.logo_atacadao {
 }
  tr, td{
     border: 1px solid grey;
+    text-align: center;
  }
 
  th {
@@ -22,3 +23,9 @@ img.logo_atacadao {
  tr.linha_assinatura{
      height: 40px;
  }
+ td.coluna_hora{
+     width: 25%;
+ }
+ td.coluna_nome{
+    width: 50%;
+}

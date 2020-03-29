@@ -12,6 +12,7 @@
                         require_once("listar_colaboradores.php");
                         $agora = new datetime();
                         $timezone = new datetimezone('America/Belem');
+                        # recebe a data de hoje para exibir no relatório
                         $agora->settimezone($timezone);
                         #echo $agora->format('d-m-Y H:i:s');
                         $agora->format('d-m-Y');
@@ -65,7 +66,7 @@
                                             # caso colaborador não registre a saída, exibe mensagem ao invés de nulo
                                             # caso não faça isso, o relatório será gerado com um horário esquisito
                                             if($coluna["hora_saida"]==NULL){
-                                                $hora_saida = "Sem registro";
+                                                $hora_saida = "Sem registro de saída";
                                             } else{
                                                 $obj_hora_saida = new datetime($coluna["hora_saida"]);
                                                 $hora_saida = $obj_hora_saida->format('H:i:s');
@@ -76,7 +77,7 @@
                                             
 
                                             ;
-                                            echo "<tr><td>".$coluna["nome"]."</td><td>".$hora_entrada."</td><td>".$hora_saida."</td>";
+                                            echo "<tr><td class='coluna_nome'>".$coluna["nome"]."</td><td class='coluna_hora'>".$hora_entrada."</td><td class='coluna_hora'>".$hora_saida."</td>";
                                         }
                                     }
                                     
