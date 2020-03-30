@@ -15,9 +15,9 @@ $localizacao = "localhost"
 $usuario = "root"
 $senha = "<sua senha>"
 # base de dados a receber backup
-$database = "Controle_Higiene"
+$database = "controle_higiene"
 # local onde vai ser armazenado o backup e o log
-$local_backup = "C:\Users\richel277287\Documents\"
+$local_backup = "C:\ProgramData\"
 # nome do arquivo de log e do backup
 $log_file = "$database-$data.log" 
 $output_file = "$database-$data.sql"
