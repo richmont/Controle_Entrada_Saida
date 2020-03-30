@@ -8,6 +8,7 @@ require_once("registro/listar_registros.php");
 ?>
 
 <html>
+<button onclick="location.href='..'" class="btnIndex" name="btnIndex" id="btnIndex" value="Página inicial" >Retornar a página inicial</button>
 <link rel="stylesheet" type="text/css" href="../css/relatorios.css">
     <div class="form_relatorio">
 	<form action="gerar_relatorio.php" method="get" id="formRelatorio">
