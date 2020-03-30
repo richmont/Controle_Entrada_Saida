@@ -9,9 +9,9 @@ $index_keys = array("usuario","senha","db_hostname","db_port","database");
 # lê o arquivo json com as credenciais de conexão ao banco
 $db_credenciais = json2var("credenciais_banco.json", $index_keys);
 if($db_credenciais["senha"]=="password"){
-	echo "Senha padrão encontrada";
-	echo "Por favor, altere a senha para corresponder ao seu banco de dados";
-	echo "no arquivo credenciais_banco.json na pasta db";
+	echo "<br>Senha padrão encontrada";
+	echo "<br>Por favor, altere a senha para corresponder ao seu banco de dados";
+	echo "<br>no arquivo credenciais_banco.json na pasta db";
 }
 
 # conecta no banco
