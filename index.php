@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="css/index.css">
 <script src="/Controle_Entrada_Saida/js/definir_foco.js"></script>
 <head>
-	<title>Página inicial</title>
+	<title>Controle de Higiene</title>
 	<?php  
 	set_include_path($_SERVER['DOCUMENT_ROOT'] . "/Controle_Entrada_Saida/") ;
 	require_once "static/cabecalho_padrao.php";
@@ -14,12 +14,21 @@
 	?>
 
 </head>
+
+
 <body onload="relogio() ; Definir_Foco('matriculaRegistro')">
-	<meta http-equiv="Refresh" content="240"> 
+	<meta http-equiv="Refresh" content="240">
+	<div id="relogio" class="relogio"></div>
 
+	<footer>Desenvolvido por <a href="https://www.google.com/maps/place/Atacad%C3%A3o+Ananindeua+Castanheira/@-1.3955206,-48.4230143,15z/data=!4m5!3m4!1s0x0:0x1a55e6e11dc452d!8m2!3d-1.3955206!4d-48.4230143" target="_blank">CPD CASTANHEIRA - 238</a></footer>
+<!--Logo do Atacadão-->
+<style>
+#img-content { float:left; margin:5px; padding-top:24px;}
+</style>
+<div id="img-content">
+<img src="/Controle_Entrada_Saida/atacadao.png" width="200" height="60" />
+<p>
 
-	
-<div id="relogio" class="relogio"></div>
 <div class="dentro_camara">
 	
 		<?php  
