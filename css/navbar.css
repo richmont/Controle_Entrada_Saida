@@ -22,6 +22,7 @@
 	**/
   display: inline;
   float: left;
+  
 }
 .navbar li a {
 
@@ -33,6 +34,50 @@
 }
 
 .navbar a:hover {
+	/**
+	quando passa o mouse acima dos links
+	muda de cor levemente
+	**/
+	background-color: #111
+}
+
+.rodape ul {
+	/**
+	fonte: https://www.w3schools.com/css/css_rodape.asp
+	remove o estilo normal de lista
+	como marcadores
+	**/
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #444;
+  
+/* fixa a barra de navegação no topo*/
+  position: fixed;
+  bottom: 0;
+  width: 100%
+}
+.rodape li {
+	/**
+	torna horizontal a lista
+	posiciona a esquerda
+	**/
+  display: inline;
+  float: left;
+  
+}
+.rodape li a {
+
+	display: block; /* modo de exibição */
+	color: white; /* cor do texto */
+	text-align: center; /* alinhamento */
+	/*padding: 5px 16px;  posicionamento das bordas */
+	text-decoration: none;
+	
+}
+
+.rodape a:hover {
 	/**
 	quando passa o mouse acima dos links
 	muda de cor levemente

@@ -91,5 +91,5 @@ ao lado de cada nome, um botão para apagar cadastro
 </body>
 
 
-
+<?php require("static/rodape.php"); ?>
 </html>

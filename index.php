@@ -82,4 +82,5 @@
 </div>
 
 </body>
+<?php require("static/rodape.php"); ?>
 </html>
