@@ -84,7 +84,7 @@ function criar_tabela_registro($conexao){
 	$query_criar_tabela_registro = 
 	"CREATE TABLE IF NOT EXISTS ch_registro ( 
 	id_registro int(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-	id_colaborador int(6) REFERENCES colaboradores(id_colaborador),
+	id_colaborador int(6) REFERENCES ch_colaboradores(id_colaborador),
 	hora_entrada datetime,
 	hora_saida datetime);";
 
