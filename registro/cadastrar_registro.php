@@ -35,7 +35,7 @@ function insere_registro_banco($id_colaborador,$horario){
 					print("Erro: " . mysqli_error($conexao));
 				} else {
 					$nome = colaborador_nome($id_colaborador);
-					echo "Colaborador ". $nome ." e horario ".$horario." registrou a entrada com sucesso";
+					echo " ". $nome ." registrou a IDA com sucesso";
 				}
 	} else {
 		# caso já tenha registro, precisamos realizar a inserção no id_registro já existente
@@ -46,7 +46,7 @@ function insere_registro_banco($id_colaborador,$horario){
 					print("Erro: " . mysqli_error($conexao));
 				} else {
 					$nome = colaborador_nome($id_colaborador);
-					echo "Colaborador ". $nome ." e horario ".$horario." registrou a saída com sucesso";
+					echo " ". $nome ." registrou a VOLTA com sucesso";
 				}
 	}
 }
