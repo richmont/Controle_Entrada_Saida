@@ -4,6 +4,7 @@
 <script src='/Controle_Entrada_Saida/js/relogio.js'></script>
 <link rel="stylesheet" type="text/css" href="css/index.css">
 <script src="/Controle_Entrada_Saida/js/definir_foco.js"></script>
+<script src="/Controle_Entrada_Saida/js/som.js"></script>
 <head>
 	<title>Controle de Higiene</title>
 	<?php  
@@ -17,7 +18,7 @@
 
 
 <body onload="relogio() ; Definir_Foco('matriculaRegistro')">
-	<meta http-equiv="Refresh" content="240">
+	<meta http-equiv="Refresh" content="30">
 	<div id="relogio" class="relogio"></div>
 
 	
@@ -65,6 +66,17 @@
 				<li>Ida: ".$hora_entrada."</li>
 				<li>Tempo lavando as mãos: ".$intervalo."</li>
 				</ul>";
+				$intervalo_horas = $obj_intervalo->format('%Hh');
+				$intervalo_minutos = $obj_intervalo->format('%Im');
+				# se pessoa está a mais de 10min registrada como foi lavar as mãos
+				if($intervalo_minutos>10){
+					echo "<script>tocarAudio(`audio.mp3`);</script>";
+				} else { if($intervalo_horas>1){
+					echo "<script>tocarAudio(`audio.mp3`);</script>";
+				}
+					
+				}
+
 
 				}
 		}	
