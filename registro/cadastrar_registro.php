@@ -27,7 +27,7 @@ function insere_registro_banco($id_colaborador,$horario){
 	$id_registro = colaborador_com_entrada_sem_saida($id_colaborador);
 	if($id_registro == NULL){
 		# se não houver um registro, armazena o horário no campo de entrada
-				$query_add_reg = "INSERT into registro (id_colaborador, hora_entrada)
+				$query_add_reg = "INSERT into ch_registro (id_colaborador, hora_entrada)
 				VALUES ('" . $id_colaborador. "', '". $horario . "')";
 				$r_add_reg = mysqli_query($conexao, $query_add_reg);
 
@@ -35,18 +35,18 @@ function insere_registro_banco($id_colaborador,$horario){
 					print("Erro: " . mysqli_error($conexao));
 				} else {
 					$nome = colaborador_nome($id_colaborador);
-					echo "Colaborador ". $nome ." e horario ".$horario." registrou a entrada com sucesso";
+					echo " ". $nome ." registrou a IDA com sucesso";
 				}
 	} else {
 		# caso já tenha registro, precisamos realizar a inserção no id_registro já existente
-		$query_update_reg = "UPDATE registro SET hora_saida = '". $horario . "' WHERE id_registro = ". $id_registro;
+		$query_update_reg = "UPDATE ch_registro SET hora_saida = '". $horario . "' WHERE id_registro = ". $id_registro;
 				$r_update_reg = mysqli_query($conexao, $query_update_reg);
 
 				if(!$r_update_reg){
 					print("Erro: " . mysqli_error($conexao));
 				} else {
 					$nome = colaborador_nome($id_colaborador);
-					echo "Colaborador ". $nome ." e horario ".$horario." registrou a saída com sucesso";
+					echo " ". $nome ." registrou a VOLTA com sucesso";
 				}
 	}
 }

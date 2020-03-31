@@ -13,7 +13,7 @@ function listar_colaboradores_array(){
 	*/
 	global $conexao;
 	$lista_colaboradores = [];
-	$query_listar_colab = "SELECT * FROM colaboradores ORDER BY id_colaborador DESC;";
+	$query_listar_colab = "SELECT * FROM ch_colaboradores ORDER BY id_colaborador DESC;";
 	$r_listar_colab = mysqli_query($conexao, $query_listar_colab);
 	if(!$r_listar_colab){
 		print("Erro: " . mysqli_error($conexao));
@@ -32,7 +32,7 @@ function listar_colaboradores_array(){
 function colaborador_nome($id_colaborador){
 	# consulta nome do colaborador informando o id
 	global $conexao;
-	$query_consultar_id_colab = 'SELECT id_colaborador, nome FROM colaboradores;';
+	$query_consultar_id_colab = 'SELECT id_colaborador, nome FROM ch_colaboradores;';
 	$r_consultar_id_colab = mysqli_query($conexao, $query_consultar_id_colab);		
 	if(!$r_consultar_id_colab){
 			print("Erro: " . mysqli_error($conexao));
@@ -55,7 +55,7 @@ function colaborador_nome($id_colaborador){
 function colaborador_matricula($id_colaborador){
 	# consulta a matricula do colaborador informando o id
 	global $conexao;
-	$query_consultar_id_colab = 'SELECT id_colaborador, matricula FROM colaboradores;';
+	$query_consultar_id_colab = 'SELECT id_colaborador, matricula FROM ch_colaboradores;';
 	$r_consultar_id_colab = mysqli_query($conexao, $query_consultar_id_colab);		
 	if(!$r_consultar_id_colab){
 			print("Erro: " . mysqli_error($conexao));
@@ -77,7 +77,7 @@ function colaborador_matricula($id_colaborador){
 		}
 function colaborador_id_pelo_nome($nome){
 	global $conexao;
-	$query_consultar_id_colab = 'SELECT id_colaborador, nome FROM colaboradores;';
+	$query_consultar_id_colab = 'SELECT id_colaborador, nome FROM ch_colaboradores;';
 	$r_consultar_id_colab = mysqli_query($conexao, $query_consultar_id_colab);		
 	if(!$r_consultar_id_colab){
 			print("Erro: " . mysqli_error($conexao));
@@ -100,7 +100,7 @@ function colaborador_id_pelo_nome($nome){
 
 function colaborador_id_pela_matricula($matricula){
 	global $conexao;
-	$query_consultar_id_colab = 'SELECT id_colaborador, matricula FROM colaboradores;';
+	$query_consultar_id_colab = 'SELECT id_colaborador, matricula FROM ch_colaboradores;';
 	$r_consultar_id_colab = mysqli_query($conexao, $query_consultar_id_colab);		
 	if(!$r_consultar_id_colab){
 			print("Erro: " . mysqli_error($conexao));

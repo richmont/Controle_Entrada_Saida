@@ -51,7 +51,7 @@
 			# se a consulta resultar em NULL, o colaborador não existe
 			if($id_consulta_pela_matricula == NULL){
 				if($id_consulta_pelo_nome == NULL){
-							$query_add_colab = "INSERT into colaboradores (nome, matricula)
+							$query_add_colab = "INSERT into ch_colaboradores (nome, matricula)
 		VALUES ('" . $nome. "', '". $matricula . "')";
 
 					$r_add_colab = mysqli_query($conexao, $query_add_colab);

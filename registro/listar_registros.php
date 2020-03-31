@@ -36,7 +36,7 @@ function listar_registro_data($dia,$mes,$ano){
 			$ano_c = sprintf('20%d', $ano);
 			#echo "dia: ".$dia_c." mes: ".$mes_c." ano: ".$ano_c;
 			$lista_registros_dia = [];
-			$query_listar_reg = "SELECT id_registro, hora_entrada, hora_saida FROM registro WHERE hora_entrada LIKE '%".$ano_c."-".$mes_c."-".$dia_c."%'";
+			$query_listar_reg = "SELECT id_registro, hora_entrada, hora_saida FROM ch_registro WHERE hora_entrada LIKE '%".$ano_c."-".$mes_c."-".$dia_c."%'";
 			$r_listar_reg = mysqli_query($conexao, $query_listar_reg);
 			if(!$r_listar_reg){
 				print("Erro: " . mysqli_error($conexao));
@@ -60,7 +60,7 @@ function listar_registros_array(){
 	global $conexao;
 
 	$lista_registros = [];
-	$query_listar_reg = "SELECT * FROM registro ORDER BY id_registro DESC;";
+	$query_listar_reg = "SELECT * FROM ch_registro ORDER BY id_registro DESC;";
 	$r_listar_reg = mysqli_query($conexao, $query_listar_reg);
 	if(!$r_listar_reg){
 		print("Erro: " . mysqli_error($conexao));
@@ -79,7 +79,7 @@ function listar_registros_array(){
 function id_colaborador_pelo_id_registro($id_registro){
 	/** retorna o id_colaborador atrelado a um id_registro */
 	global $conexao;
-	$query_listar_reg = "SELECT id_registro, id_colaborador FROM registro";
+	$query_listar_reg = "SELECT id_registro, id_colaborador FROM ch_registro";
 	$r_listar_reg = mysqli_query($conexao, $query_listar_reg);
 	if(!$r_listar_reg){
 		print("Erro: " . mysqli_error($conexao));
@@ -103,7 +103,7 @@ function id_colaborador_pelo_id_registro($id_registro){
 function hora_entrada_pelo_id_registro($id_registro){
 	/** retorna a hora de entrada de um certo $id_registro */
 	global $conexao;
-	$query_listar_reg = "SELECT id_registro, hora_entrada FROM registro";
+	$query_listar_reg = "SELECT id_registro, hora_entrada FROM ch_registro";
 	$r_listar_reg = mysqli_query($conexao, $query_listar_reg);
 	if(!$r_listar_reg){
 		print("Erro: " . mysqli_error($conexao));
@@ -127,7 +127,7 @@ function hora_entrada_pelo_id_registro($id_registro){
 function hora_saida_pelo_id_registro($id_registro){
 	/** retorna a hora de saida de um certo $id_registro */
 	global $conexao;
-	$query_listar_reg = "SELECT id_registro, hora_saida FROM registro";
+	$query_listar_reg = "SELECT id_registro, hora_saida FROM ch_registro";
 	$r_listar_reg = mysqli_query($conexao, $query_listar_reg);
 	if(!$r_listar_reg){
 		print("Erro: " . mysqli_error($conexao));
@@ -151,7 +151,7 @@ function hora_saida_pelo_id_registro($id_registro){
 function colaborador_com_entrada_sem_saida($id_colaborador){
 	/** recebe um id de colaborador, retorna o id do registro se ele tiver uma entrada e não uma saída */
 	global $conexao;
-	$query_listar_reg = "SELECT * FROM registro";
+	$query_listar_reg = "SELECT * FROM ch_registro";
 	$r_listar_reg = mysqli_query($conexao, $query_listar_reg);
 	if(!$r_listar_reg){
 		print("Erro: " . mysqli_error($conexao));
@@ -186,7 +186,7 @@ function lista_colaboradores_na_camara(){
 
 	$lista_colaboradores_sem_saida_camara = [];
 	global $conexao;
-	$query_listar_reg = "SELECT * FROM registro";
+	$query_listar_reg = "SELECT * FROM ch_registro";
 	$r_listar_reg = mysqli_query($conexao, $query_listar_reg);
 	if(!$r_listar_reg){
 		print("Erro: " . mysqli_error($conexao));
@@ -212,7 +212,7 @@ function ultimo_registro_colaborador($id_colaborador){
 	if(is_int($id_colaborador)){
 		$lista_registros_por_colaborador = [];
 		global $conexao;
-		$query_listar_reg = "SELECT id_registro, id_colaborador FROM registro where id_colaborador = ".$id_colaborador." ORDER BY id_registro DESC LIMIT 1";
+		$query_listar_reg = "SELECT id_registro, id_colaborador FROM ch_registro where id_colaborador = ".$id_colaborador." ORDER BY id_registro DESC LIMIT 1";
 		$r_listar_reg = mysqli_query($conexao, $query_listar_reg);
 		if(!$r_listar_reg){
 			print("Erro: " . mysqli_error($conexao));
@@ -234,7 +234,7 @@ function lista_registros_por_colaborador($id_colaborador){
 	if(is_int($id_colaborador)){
 		$lista_registros_por_colaborador = [];
 		global $conexao;
-		$query_listar_reg = "SELECT id_registro, id_colaborador FROM registro where id_colaborador = " . $id_colaborador;
+		$query_listar_reg = "SELECT id_registro, id_colaborador FROM ch_registro where id_colaborador = " . $id_colaborador;
 		$r_listar_reg = mysqli_query($conexao, $query_listar_reg);
 		echo "<br><br><br><br>".var_dump($r_listar_reg);
 		if(!$r_listar_reg){
@@ -265,7 +265,7 @@ function tabela_registros_por_colaborador($id_colaborador){
         # valor recebido precisa ser um inteiro, ou falha
         $tabela_registros_por_colaborador = [];
         global $conexao;
-        $query_tabela_reg = "SELECT registro.id_registro, colaboradores.nome, colaboradores.matricula, registro.hora_entrada, registro.hora_saida FROM colaboradores INNER JOIN registro on colaboradores.id_colaborador = registro.id_colaborador where colaboradores.id_colaborador = " . $id_colaborador;
+        $query_tabela_reg = "SELECT ch_registro.id_registro, ch_colaboradores.nome, ch_colaboradores.matricula, ch_registro.hora_entrada, ch_registro.hora_saida FROM ch_colaboradores INNER JOIN ch_registro on ch_colaboradores.id_colaborador = ch_registro.id_colaborador where ch_colaboradores.id_colaborador = " . $id_colaborador;
         
         $r_tabela_reg = mysqli_query($conexao, $query_tabela_reg);
         if(!$r_tabela_reg){
@@ -314,7 +314,7 @@ function listar_registro_data_colaborador($dia,$mes,$ano, $id_colaborador){
 				#echo "dia: ".$dia_c." mes: ".$mes_c." ano: ".$ano_c;
 				$lista_registros_dia_colaborador = [];
 
-				$query_listar_reg = "SELECT colaboradores.nome, colaboradores.matricula, registro.hora_entrada, registro.hora_saida FROM colaboradores INNER JOIN registro on colaboradores.id_colaborador = registro.id_colaborador WHERE registro.id_colaborador = ".$id_colaborador." AND hora_entrada LIKE '%".$ano_c."-".$mes_c."-".$dia_c."%'";
+				$query_listar_reg = "SELECT ch_colaboradores.nome, ch_colaboradores.matricula, ch_registro.hora_entrada, ch_registro.hora_saida FROM ch_colaboradores INNER JOIN ch_registro on ch_colaboradores.id_colaborador = ch_registro.id_colaborador WHERE ch_registro.id_colaborador = ".$id_colaborador." AND hora_entrada LIKE '%".$ano_c."-".$mes_c."-".$dia_c."%'";
 				$r_listar_reg = mysqli_query($conexao, $query_listar_reg);
 				#echo var_dump($r_listar_reg);
 				#echo $r_listar_reg->field_count;

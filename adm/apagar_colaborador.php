@@ -4,7 +4,7 @@ require "adm/listar_colaboradores.php";
 
 function apagar_colaborador($id_colaborador){
 	global $conexao;
-	$query_apagar_colab = "DELETE FROM `colaboradores` WHERE id_colaborador = " . $id_colaborador . ";";
+	$query_apagar_colab = "DELETE FROM `ch_colaboradores` WHERE id_colaborador = " . $id_colaborador . ";";
 
 	$r_apagar_colab = mysqli_query($conexao, $query_apagar_colab);
 
