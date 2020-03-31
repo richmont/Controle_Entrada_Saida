@@ -20,7 +20,7 @@
 	<meta http-equiv="Refresh" content="240">
 	<div id="relogio" class="relogio"></div>
 
-	<footer>Desenvolvido por <a href="https://www.google.com/maps/place/Atacad%C3%A3o+Ananindeua+Castanheira/@-1.3955206,-48.4230143,15z/data=!4m5!3m4!1s0x0:0x1a55e6e11dc452d!8m2!3d-1.3955206!4d-48.4230143" target="_blank">CPD CASTANHEIRA - 238</a></footer>
+	
 <!--Logo do Atacadão-->
 <style>
 #img-content { float:left; margin:5px; padding-top:24px;}
@@ -62,7 +62,7 @@
 				echo "<ul>
 				<li>".$nome."</li>
 				
-				<li>Entrada: ".$hora_entrada."</li>
+				<li>Ida: ".$hora_entrada."</li>
 				<li>Tempo lavando as mãos: ".$intervalo."</li>
 				</ul>";
 

@@ -1,3 +1,4 @@
+<!-- FAVOR MANTENHA OS CRÉDITOS -->
 <link rel="stylesheet" type="text/css" href="/Controle_Entrada_Saida/css/navbar.css">
 <div class="rodape">
 	<ul>
