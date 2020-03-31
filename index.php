@@ -60,9 +60,9 @@
 					$intervalo = $hora_entrada;
 				}
 
-				echo "<ul>
-				<li>".$nome."</li>
+				echo "<ul id='colab_$id_colaborador'>
 				
+				<li>".$nome."</li>
 				<li>Ida: ".$hora_entrada."</li>
 				<li>Tempo lavando as mãos: ".$intervalo."</li>
 				</ul>";
@@ -70,8 +70,10 @@
 				$intervalo_minutos = $obj_intervalo->format('%Im');
 				# se pessoa está a mais de 10min registrada como foi lavar as mãos
 				if($intervalo_minutos>10){
+					echo "<style> #colab_$id_colaborador {background-color: red; color: white;}</style>";
 					echo "<script>tocarAudio(`audio.mp3`);</script>";
 				} else { if($intervalo_horas>1){
+					echo "<style> #colab_$id_colaborador {background-color: red; color: white;}</style>";
 					echo "<script>tocarAudio(`audio.mp3`);</script>";
 				}
 					
