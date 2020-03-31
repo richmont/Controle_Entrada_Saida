@@ -4,6 +4,7 @@
 <script src='/Controle_Entrada_Saida/js/relogio.js'></script>
 <link rel="stylesheet" type="text/css" href="css/index.css">
 <script src="/Controle_Entrada_Saida/js/definir_foco.js"></script>
+<script src="/Controle_Entrada_Saida/js/som.js"></script>
 <head>
 	<title>Controle de Higiene</title>
 	<?php  
@@ -17,7 +18,7 @@
 
 
 <body onload="relogio() ; Definir_Foco('matriculaRegistro')">
-	<meta http-equiv="Refresh" content="240">
+	<meta http-equiv="Refresh" content="30">
 	<div id="relogio" class="relogio"></div>
 
 	<footer>Desenvolvido por <a href="https://www.google.com/maps/place/Atacad%C3%A3o+Ananindeua+Castanheira/@-1.3955206,-48.4230143,15z/data=!4m5!3m4!1s0x0:0x1a55e6e11dc452d!8m2!3d-1.3955206!4d-48.4230143" target="_blank">CPD CASTANHEIRA - 238</a></footer>
@@ -65,6 +66,17 @@
 				<li>Entrada: ".$hora_entrada."</li>
 				<li>Tempo lavando as mãos: ".$intervalo."</li>
 				</ul>";
+				$intervalo_horas = $obj_intervalo->format('%Hh');
+				$intervalo_minutos = $obj_intervalo->format('%Im');
+				# se pessoa está a mais de 10min registrada como foi lavar as mãos
+				if($intervalo_minutos>10){
+					echo "<script>tocarAudio(`audio.mp3`);</script>";
+				} else { if($intervalo_horas>1){
+					echo "<script>tocarAudio(`audio.mp3`);</script>";
+				}
+					
+				}
+
 
 				}
 		}	
