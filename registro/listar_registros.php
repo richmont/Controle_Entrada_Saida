@@ -18,7 +18,9 @@ function tamanho_numero($numero){
 
 
 function listar_registro_data($dia,$mes,$ano){
-/** recebe todos os registros */
+/** recebe todos os registros de uma determinada data
+ * inclui também nome e matrícula dos colaboradores registrados
+*/
 	global $conexao;
 	if(tamanho_numero($dia)>2){
 		return NULL;
@@ -36,7 +38,7 @@ function listar_registro_data($dia,$mes,$ano){
 			$ano_c = sprintf('20%d', $ano);
 			#echo "dia: ".$dia_c." mes: ".$mes_c." ano: ".$ano_c;
 			$lista_registros_dia = [];
-			$query_listar_reg = "SELECT id_registro, hora_entrada, hora_saida FROM ch_registro WHERE hora_entrada LIKE '%".$ano_c."-".$mes_c."-".$dia_c."%'";
+			$query_listar_reg = "SELECT ch_colaboradores.nome, ch_colaboradores.matricula, ch_registro.hora_entrada, ch_registro.hora_saida FROM ch_colaboradores INNER JOIN ch_registro on ch_colaboradores.id_colaborador = ch_registro.id_colaborador WHERE hora_entrada LIKE '%".$ano_c."-".$mes_c."-".$dia_c."%'";
 			$r_listar_reg = mysqli_query($conexao, $query_listar_reg);
 			if(!$r_listar_reg){
 				print("Erro: " . mysqli_error($conexao));
