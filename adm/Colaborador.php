@@ -44,10 +44,11 @@ ao lado de cada nome, um botão para apagar cadastro
 		<input type='hidden' name='id_colaborador' id="valor_form_apagar" value=''>
 			    <table>
 			    <tr>
+					<th>Marcar</th>
 				    <th>id</th>
 				    <th>Nome</th>
 				    <th>Matrícula</th>
-				    <th>Apagar</th>
+				    <!--<th>Apagar</th> -->
 			    </tr>
 			<?php  
 			/**
@@ -58,6 +59,7 @@ ao lado de cada nome, um botão para apagar cadastro
 			if($lista != NULL){
 				foreach ($lista as $coluna) {
 					echo "<tr>
+						<td><input type=checkbox id='checkbox_matricula' name ='checkbox_matricula[]' value = ".$coluna["matricula"].">
 						<td>" . $coluna['id_colaborador'] . "</td>
 						<td>" . $coluna['nome'] . "</td>
 						<td><a href='gerar_relatorio.php?matricula=000".$coluna['matricula']."'>" . $coluna['matricula'] . "</a></td>";
@@ -65,13 +67,13 @@ ao lado de cada nome, um botão para apagar cadastro
 						$id = $coluna['id_colaborador'];
 			    	
 			    	# botão que, ao mesmo tempo, altera o valor do elemento oculto com a id do colaborador clicado, pergunta ao usuário se tem certeza que quer apagar, e submete o formulário.
-			    	echo "
-			    	<td>
-				    	<input type='hidden' type='button' value='Apagar' onclick="
-				    	. "\" mudaValueApagarColab(" . $id . "); submitOnClick(confirmarApagarColab('form_apagar_colab'),'form_apagar_colab') \"" .
-				    	"></input>
+			    	#echo "
+			    	#"<td>
+				    #	<input type='hidden' type='button' value='Apagar' onclick="
+				    #	. "\" mudaValueApagarColab(" . $id . "); submitOnClick(confirmarApagarColab('form_apagar_colab'),'form_apagar_colab') \"" .
+				    #	"></input>";
 
-				    	</tr>";
+				    	echo "</tr>";
 				}
 			} else {
 				echo "Tabela vazia, favor cadastrar colaboradores";
