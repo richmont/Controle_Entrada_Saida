@@ -40,6 +40,24 @@ body {
 
 }
 
+
+.btnRelatorioGeral{
+  /**
+  https://www.w3schools.com/css/css3_buttons.asp
+  **/
+  background-color: #444;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 3px 3px;
+  cursor: pointer;
+
+}
+
 .apagar_colaborador table{
     border: all;
     width: 100%
