@@ -17,13 +17,42 @@
                         $agora->settimezone($timezone);
                         #echo $agora->format('d-m-Y H:i:s');
                         $agora->format('d-m-Y');
-                        $dia = $agora->format('d');
+                        
                         $mes = $agora->format('m');
                         $ano = $agora->format('y');
-                        $bool = empty($_GET["matricula"]);
-                         // verifica se há valores recebidos por GET
-                        if($bool){
-                            #echo "Matrícula ausente, insira na tela de registro";
+
+                        // verifica se há valores recebidos por GET
+                        
+                        $bool_dia = empty($_GET["dia"]);
+                        $bool_mes = empty($_GET["mes"]);
+                        $bool_ano = empty($_GET["ano"]);
+
+                        # se não foi recebido o valor do dia no formulário, então define o dia corrente como padrão
+                        if($bool_dia){
+                           $dia = $agora->format('d');
+                        } else{
+                           $dia = $_GET["dia"];
+                        }
+
+                        if($bool_mes){
+                           $mes = $agora->format('m');
+                        } else{
+                           $mes = $_GET["mes"];
+                        }
+
+
+                        if($bool_ano){
+                           $ano = $agora->format('y');
+                        } else{
+                           $ano = $_GET["ano"];
+                        }
+
+                        #echo "Matrícula recebida: ". $_GET["matricula"];
+                        #echo "dia, mês e ano recebidos: ". $dia . $mes . $ano;
+                        $bool_matricula = empty($_GET["matricula"]);
+                        if($bool_matricula){
+
+                            echo "Matrícula ausente, insira na tela de registro";
                         } else{
                             $matricula = $_GET["matricula"];
                             # verificação via regex se o valor recebido é válido
