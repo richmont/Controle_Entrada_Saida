@@ -79,7 +79,7 @@ if($bool){
 }
 
 #Retorna automaticamente à página anterior
-echo "<meta HTTP-EQUIV='refresh' CONTENT='3;URL=..'>";
+echo "<meta HTTP-EQUIV='refresh' CONTENT='1;URL=..'>";
 ?><br>
 
 <!--<button onclick="location.href='/Controle_Entrada_Saida/'" class="btnIndex" name="btnIndex" id="btnIndex" value="Página inicial" >Retornar a página inicial</button>-->
