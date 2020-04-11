@@ -34,14 +34,16 @@ function conectar_banco($db_credenciais){
 }
 
 function criar_database($conexao){
-	$query_criar_database = "CREATE DATABASE IF NOT EXISTS atacadao";
+	# banco criado com base no nome do json
+	global $db_credenciais;
+	$query_criar_database = "CREATE DATABASE IF NOT EXISTS " . $db_credenciais['database'];
 
 	$r_criar_database = mysqli_query($conexao, $query_criar_database);
 
 	if(!$r_criar_database){
 		print("Erro: " . mysqli_error($conexao));
 	} else {
-		echo "<br>Banco de dados atacadao criada com sucesso<br>";
+		echo "<br>Banco de dados ". $db_credenciais['database']." criada com sucesso<br>";
 	}
 }
 
@@ -52,7 +54,7 @@ function criar_tabela_colaboradores($conexao){
 	"CREATE TABLE IF NOT EXISTS ch_colaboradores ( 
 	id_colaborador INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 	nome VARCHAR(50) NOT NULL,
-	setor INT(9) REFERENCES setor(id_setor),
+	setor INT(9) REFERENCES ch_setor(id_setor),
 	matricula INT(9) NOT NULL);";
 
 	# cria a tabela de colaboradores
@@ -69,7 +71,7 @@ function criar_tabela_setor($conexao){
 	$query_criar_tabela_setor =
 	"CREATE TABLE IF NOT EXISTS ch_setor ( 
 	id_setor INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-	nome_setor VARCHAR(50) NOT NULL";
+	nome_setor VARCHAR(50) NOT NULL)";
 	# cria a tabela de setor
 	$r_criar_setor = mysqli_query($conexao, $query_criar_tabela_setor);
 	if(!$r_criar_setor){
