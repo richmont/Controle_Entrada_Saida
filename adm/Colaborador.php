@@ -26,6 +26,7 @@ ao lado de cada nome, um botão para apagar cadastro
 	-->
 	<input type="button" class="btnMostrarFormCadastro" name="btnMostrarCadastro" value="Cadastrar Colaborador" onclick="esconderElemento('form_in_colab')"></input>
 	<input type="button" class="btnRelatorioGeral" name="btnRelatorioGeral" value="Gerar relatório geral" onclick="location.href = 'gerar_relatorio.php';"></input>
+	
 	<div id="form_in_colab" class="form_in_colab" style="display: none;">
 		<form action="cadastro_colaborador.php" method="get" id="form_colaborador">
 			<ul>
@@ -39,9 +40,19 @@ ao lado de cada nome, um botão para apagar cadastro
 </div>
 <br>
 <!-- listagem dos colaboradores deve estar dentro do formulário para apagar -->
-<div class="apagar_colaborador">
-	<form id='form_apagar_colab' action='apagar_colaborador.php'  class='form_apagar_colab' name='form_apagar_colab' method='get'>
-		<input type='hidden' name='id_colaborador' id="valor_form_apagar" value=''>
+<div class="altera_colaborador">
+	<form id='form_altera_colaborador' action='altera_colaborador.php'  class='form_altera_colaborador' name='form_altera_colaborador' method='get'>
+	<label for="setor_select">Escolha o setor:</label>
+	<select id="setor_select">
+	<?php 
+	require_once("listar_setores.php");
+	$lista_setores = listar_setor_array();
+	foreach($lista_setores as $setor){
+		echo "<option value=".$setor['id_setor'].">".$setor["nome_setor"]."</option><br>";
+	}
+	?>
+</select>
+		<input type='hidden' name='id_colaborador' id="valor_form_altera" value=''>
 			    <table>
 			    <tr>
 					<th>Marcar</th>
