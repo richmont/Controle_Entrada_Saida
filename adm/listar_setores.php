@@ -26,4 +26,50 @@ function setor_id_pelo_nome_setor($nome){
 			}
 }
 
+function listar_setor_array(){
+	/**
+	Consulta o banco, recebe todo o conteúdo da tabela setor
+	ordena pelo id_setor, retorna ao usuário um array.
+	*/
+	global $conexao;
+	$lista_setor = [];
+	$query_listar_setor = "SELECT * FROM ch_setor ORDER BY id_setor DESC;";
+	$r_listar_setor = mysqli_query($conexao, $query_listar_setor);
+	if(!$r_listar_setor){
+		print("Erro: " . mysqli_error($conexao));
+	} else {
+		if (mysqli_num_rows($r_listar_setor) > 0) {
+		    // saída dos dados de cada coluna
+		    while($coluna = mysqli_fetch_assoc($r_listar_setor)){
+		    	array_push($lista_setor, $coluna);
+		    }
+		    return $lista_setor;
+		    
+		}
+	}
+}
+
+function numero_colaboradores_setor($id_setor){
+	/**
+    Consulta quantos colaboradores estão vinculados a um setor
+    setor recebido por parametro
+	*/
+	global $conexao;
+	$query_listar_setor = "SELECT count(ch_colaboradores.setor) as num_colaboradores from ch_colaboradores where ch_colaboradores.setor = ". $id_setor;
+	$r_listar_setor = mysqli_query($conexao, $query_listar_setor);
+	if(!$r_listar_setor){
+		print("Erro: " . mysqli_error($conexao));
+	} else {
+		if (mysqli_num_rows($r_listar_setor) > 0) {
+		    // saída dos dados de cada coluna
+		    while($coluna = mysqli_fetch_assoc($r_listar_setor)){
+		    	$num_colaboradores_setor =  $coluna["num_colaboradores"];
+		    }
+		    return $num_colaboradores_setor;
+		    
+		}
+	}
+}
+
+
 ?>
