@@ -59,11 +59,11 @@ body {
 
 }
 
-.apagar_colaborador table{
+.altera_colaborador table{
     border: all;
     width: 100%
 }
-.apagar_colaborador th,td{
+.altera_colaborador th,td{
   height: 50%;
   text-align: left;
   padding: 5px;
