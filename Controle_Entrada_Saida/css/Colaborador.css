@@ -1,0 +1,74 @@
+body {
+  /* permite que o conteúdo da página não seja sobreposto pelo cabeçalho**/
+  padding-top: 60px;
+}
+
+.form_in_colab li {
+    list-style-type: none;
+    /* alinha na horizontal */
+    float: left;
+    /* espaço entre elementos de lista */
+    margin: 0 1em;
+
+}
+.form_in_colab ul {
+	  margin: 3;
+  	padding: 3;
+  	display: block;
+}
+
+.form_in_colab input {
+	padding: 12px 20px;
+}
+.form_in_colab form {
+  padding-left: 2 ;
+}
+
+.btnMostrarFormCadastro{
+  /**
+  https://www.w3schools.com/css/css3_buttons.asp
+  **/
+  background-color: #444;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 3px 3px;
+  cursor: pointer;
+
+}
+
+
+.btnRelatorioGeral{
+  /**
+  https://www.w3schools.com/css/css3_buttons.asp
+  **/
+  background-color: #444;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 3px 3px;
+  cursor: pointer;
+
+}
+
+.altera_colaborador table{
+    border: all;
+    width: 100%
+}
+.altera_colaborador th,td{
+  height: 50%;
+  text-align: left;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+}
+div {
+  padding-bottom: 10px;
+}

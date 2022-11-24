@@ -1,0 +1,16 @@
+body {
+    /* permite que o conteúdo da página não seja sobreposto pelo cabeçalho**/
+    padding-top: 60px;
+  }
+
+  .tab_listagem_setores table{
+    border: all;
+    width: 100%
+  }
+
+  .tab_listagem_setores th,td{
+    height: 50%;
+    text-align: left;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+  }
