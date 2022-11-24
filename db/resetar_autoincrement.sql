@@ -1,1 +1,0 @@
-ALTER TABLE colaboradores AUTO_INCREMENT = 1
