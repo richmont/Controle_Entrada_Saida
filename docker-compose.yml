@@ -29,7 +29,7 @@ services:
     #command: docker-php-ext-install mysqli && docker-php-ext-enable mysqli && php-fpm
     volumes:
     - ./Controle_Entrada_Saida:/www/Controle_Entrada_Saida
-    - ./php_mysqli.ini:/usr/local/etc/php/php.ini
+    - ./php_mysqli.ini:/usr/local/etc/php/conf.d/mysqli.ini
     links:
       - db
 
